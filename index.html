@@ -3,240 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Репетитор Ксения - Подготовка к ОГЭ и ЕГЭ</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <meta name="description" content="Репетиторство и подготовка к ОГЭ и ЕГЭ. Помощь школьникам в освоении учебного материала.">
+    <title>Репетиторство и подготовка к экзаменам</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Основные стили */
+        /* Основные стили для сайта */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f7fc;
-            color: #333;
+            background: #f8f9fa;
         }
 
-        /* Навигация */
-        nav {
-            background-color: #4a90e2;
-            padding: 15px 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav a {
-            color: #fff;
-            margin: 0 25px;
-            text-decoration: none;
-            font-size: 18px;
-            text-transform: uppercase;
-        }
-
-        nav a:hover {
-            border-bottom: 2px solid #fff;
-        }
-
-        /* Шапка сайта */
         header {
-            background-image: url('https://via.placeholder.com/1920x600/4a90e2/ffffff?text=Подготовка+к+ОГЭ+и+ЕГЭ');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
+            background-color: #3b5998;
+            color: white;
             text-align: center;
-            padding: 150px 20px;
+            padding: 30px 0;
         }
 
         header h1 {
-            font-size: 48px;
             margin: 0;
+            font-size: 40px;
         }
 
-        header p {
-            font-size: 22px;
-            margin: 10px 0;
+        nav {
+            background-color: #ff6347;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ff4500;
+        }
+
+        .hero-section {
+            background: url('hero-image.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-section h2 {
+            font-size: 50px;
+            margin: 0;
         }
 
         .cta-button {
-            background-color: #ff7f50;
+            background-color: #ff6347;
             color: white;
             padding: 15px 30px;
-            font-size: 18px;
             border: none;
+            font-size: 20px;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
+            transition: background-color 0.3s;
         }
 
         .cta-button:hover {
-            background-color: #ff6347;
+            background-color: #ff4500;
         }
 
-        /* Разделы */
-        section {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            color: #4a90e2;
-            font-size: 36px;
+        .services, .testimonials, .contact-form {
+            padding: 50px 20px;
             text-align: center;
-            margin-bottom: 20px;
         }
 
-        .services, .testimonials, .about {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card, .testimonial-card {
+        .service-card {
             background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 250px;
             text-align: center;
         }
 
-        .service-card h3, .testimonial-card h3 {
-            color: #4a90e2;
-            font-size: 24px;
-            margin-bottom: 15px;
+        .service-card h3 {
+            color: #ff6347;
         }
 
-        .service-card p, .testimonial-card p {
-            font-size: 16px;
+        .service-card p {
             color: #555;
+        }
+
+        .testimonials-block {
+            background-color: #eaeaea;
+            padding: 50px 20px;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
 
-        .testimonial-card p {
+        .testimonial p {
             font-style: italic;
+            color: #555;
         }
 
-        /* Контактная форма */
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
+        .testimonial h4 {
+            color: #333;
         }
 
-        .contact-form input[type="submit"] {
-            background-color: #4a90e2;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        .contact-form input[type="submit"]:hover {
-            background-color: #357ab7;
-        }
-
-        /* Подвал */
         footer {
-            background-color: #4a90e2;
-            color: #fff;
-            padding: 20px;
+            background-color: #3b5998;
+            color: white;
             text-align: center;
+            padding: 20px 0;
         }
 
         footer p {
-            font-size: 16px;
             margin: 0;
+            font-size: 14px;
         }
 
+        footer a {
+            color: #ff6347;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
 
-<!-- Навигация -->
+<header>
+    <h1>Подготовка к ОГЭ и ЕГЭ</h1>
+    <p>Репетиторство и помощь в подготовке к экзаменам</p>
+</header>
+
 <nav>
     <a href="#services">Услуги</a>
     <a href="#testimonials">Отзывы</a>
-    <a href="#about">Обо мне</a>
     <a href="#contact">Контакты</a>
-    <a href="#sign-up" class="cta-button">Хочу записаться</a>
 </nav>
-<!-- Шапка сайта -->
-<header>
-    <h1>Репетитор Ксения</h1>
-    <p>Подготовка к ОГЭ и ЕГЭ с индивидуальным подходом</p>
-    <a href="#sign-up" class="cta-button">Записаться на занятия</a>
-</header>
 
-<!-- Услуги -->
-<section id="services">
+<div class="hero-section">
+    <h2>Готовимся к экзаменам с профессионалами!</h2>
+    <a href="#contact" class="cta-button">Записаться на занятие</a>
+</div>
+<div class="services" id="services">
     <h2>Наши Услуги</h2>
-    <div class="services">
-        <div class="service-card">
-            <h3>Подготовка к ОГЭ</h3>
-            <p>Эффективная подготовка с фокусом на самые важные темы для успешной сдачи экзаменов.</p>
-            <a href="#contact" class="cta-button">Записаться</a>
-        </div>
-        <div class="service-card">
-            <h3>Подготовка к ЕГЭ</h3>
-            <p>Проработка сложных тем и задач для уверенного прохождения ЕГЭ с отличным результатом.</p>
-            <a href="#contact" class="cta-button">Записаться</a>
-        </div>
-        <div class="service-card">
-            <h3>Индивидуальные занятия</h3>
-            <p>Персонализированные уроки, учитывающие уровень знаний и индивидуальные потребности.</p>
-            <a href="#contact" class="cta-button">Записаться</a>
-        </div>
+    <div class="service-card">
+        <h3>Подготовка к ОГЭ</h3>
+        <p>Индивидуальные занятия по всем предметам ОГЭ.</p>
     </div>
-</section>
+    <div class="service-card">
+        <h3>Подготовка к ЕГЭ</h3>
+        <p>Экспертная помощь для успешной сдачи ЕГЭ.</p>
+    </div>
+    <div class="service-card">
+        <h3>Математика и Физика</h3>
+        <p>Особое внимание к сложным предметам.</p>
+    </div>
+</div>
 
-<!-- Отзывы -->
-<section id="testimonials">
+<div class="testimonials" id="testimonials">
     <h2>Отзывы студентов</h2>
-    <div class="testimonials">
-        <div class="testimonial-card">
-            <h3>Марина, 10 класс</h3>
-            <p>"Ксения — отличный преподаватель! Благодаря её урокам я смогла улучшить результаты по математике и уверенно сдать ОГЭ."</p>
-        </div>
-        <div class="testimonial-card">
-            <h3>Иван, 11 класс</h3>
-            <p>"Очень доволен подготовкой к ЕГЭ! Ксения всегда объясняет сложные темы доступно и понятно."</p>
-        </div>
+    <div class="testimonial">
+        <p>"Прекрасный репетитор, помог мне сдать ЕГЭ на высокий балл!"</p>
+        <h4>Иван, 11 класс</h4>
     </div>
-</section>
-
-<!-- Обо мне -->
-<section id="about">
-    <h2>Обо мне</h2>
-    <p>Меня зовут Ксения, и я репетитор по математике и физике. Я занимаюсь подготовкой учеников к ОГЭ и ЕГЭ уже более 5 лет. Моя цель — помочь каждому ученику достичь наилучших результатов и повысить уверенность в своих знаниях.</p>
-</section>
-
-<!-- Контакты -->
-<section id="contact">
-    <h2>Контакты</h2>
-    <div class="contact-form">
-        <form action="#" method="post">
-            <label for="name">Ваше имя:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Ваш email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Ваш вопрос:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-            <input type="submit" value="Отправить">
-        </form>
+    <div class="testimonial">
+        <p>"Очень благодарен за подготовку к ОГЭ. Результаты просто отличные!"</p>
+        <h4>Анна, 9 класс</h4>
     </div>
-</section>
+</div>
 
-<!-- Записаться -->
-<section id="sign-up">
-    <h2>Запишитесь на занятия</h2>
-    <p>Нажмите кнопку ниже, чтобы записаться на индивидуальные занятия с Ксенией.</p>
-    <a href="#contact" class="cta-button">Записаться</a>
-</section>
+<div class="contact-form" id="contact">
+    <h2>Свяжитесь с нами</h2>
+    <form action="#" method="post">
+        <input type="text" name="name" placeholder="Ваше имя" required><br><br>
+        <input type="email" name="email" placeholder="Ваш email" required><br><br>
+        <textarea name="message" placeholder="Ваше сообщение" rows="4" required></textarea><br><br>
+        <button type="submit" class="cta-button">Отправить сообщение</button>
+    </form>
+</div>
 
-<!-- Подвал -->
 <footer>
-    <p>© 2024 Репетитор Ксения. Все права защищены.</p>
+    <p>&copy; 2024 Подготовка к экзаменам. Все права защищены. <br> Разработано для школьников и студентов.</p>
+    <p><a href="mailto:info@tutoring.com">info@tutoring.com</a></p>
 </footer>
 
 </body>
