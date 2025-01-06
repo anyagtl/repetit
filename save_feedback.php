@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Здесь вы можете сохранить данные в базе данных или отправить их на email
     // Пример: отправка на email
-    $to = "your-email@example.com"; // Замените на ваш email
+    $to = "kseniya.lipskaya06@gmail.com"; // Замените на ваш email
     $subject = "Новое сообщение от $name";
     $body = "Имя: $name\nEmail: $email\nСообщение: $message";
     $headers = "From: $email";
