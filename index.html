@@ -393,7 +393,39 @@
 
 </body>
 </html>
+<script>
+    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Предотвращаем отправку формы по умолчанию
 
+        // Получаем данные из формы
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // Создаем объект FormData для отправки данных
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('message', message);
+
+        // Отправляем данные на сервер с помощью fetch
+        fetch('save_feedback.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data); // Показываем ответ от сервера
+            this.reset(); // Очищаем форму
+        })
+        .catch(error => {
+            console.error('Ошибка:', error);
+            alert('Произошла ошибка при отправке сообщения.');
+        });
+    });
+</script>
+
+Find More
 Find More
 
 <footer>
