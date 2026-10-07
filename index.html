@@ -5,23 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Центр Подготовки — Онлайн-школа</title>
-    <meta name="description" content="Центр Подготовки — академическая онлайн-школа. Наука, знание, доверие.">
+    <meta name="description" content="Центр Подготовки — академическая онлайн-школа. Материалы для ВПР, МЦКО, ОГЭ и ЕГЭ.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* ===== ПАЛИТРА: сдержанная, академическая ===== */
         :root {
-            --ink: #0A1628;              /* Глубокий чернильный — основа */
-            --ink-deep: #060E1C;         /* Ещё глубже — для контраста */
-            --ink-soft: #15243D;         /* Мягкий тёмно-синий */
-            --brass: #9C7B3E;            /* Бронза вместо золота — сдержанно */
-            --brass-muted: #7A5F2E;      /* Тёмная бронза */
-            --paper: #F4F1EA;            /* Тёплая бумага */
-            --paper-warm: #EDE9E0;       /* Чуть темнее — для секций */
-            --line: #D8D3C8;             /* Линия-волосок */
+            --ink: #0A1628;
+            --ink-deep: #060E1C;
+            --ink-soft: #15243D;
+            --brass: #9C7B3E;
+            --brass-muted: #7A5F2E;
+            --paper: #F4F1EA;
+            --paper-warm: #EDE9E0;
+            --line: #D8D3C8;
             --line-dark: rgba(10, 22, 40, 0.12);
             --text: #1A1F2B;
             --text-soft: #4A5260;
@@ -40,10 +39,8 @@
             line-height: 1.65;
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* ===== ТОНКАЯ ФОНОВАЯ СЕТКА (архитектурный чертёж) ===== */
         .grid-overlay {
             position: fixed;
             inset: 0;
@@ -92,32 +89,9 @@
             font-size: 1.7rem;
             color: var(--brass);
             font-weight: 500;
-            position: relative;
         }
 
-        .logo-mark::before,
-        .logo-mark::after {
-            content: "";
-            position: absolute;
-            background: var(--brass);
-            opacity: 0.5;
-        }
-
-        .logo-mark::before {
-            width: 6px; height: 1px;
-            top: 4px; left: 4px;
-        }
-
-        .logo-mark::after {
-            width: 6px; height: 1px;
-            bottom: 4px; right: 4px;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.15;
-        }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.15; }
 
         .logo-title {
             font-family: 'Cormorant Garamond', serif;
@@ -133,41 +107,27 @@
             color: var(--brass);
             letter-spacing: 3px;
             text-transform: uppercase;
-            font-weight: 400;
             margin-top: 2px;
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 0;
-        }
+        nav ul { display: flex; list-style: none; gap: 0; }
 
-        nav li {
-            border-left: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        nav li:last-child {
-            border-right: 1px solid rgba(255, 255, 255, 0.08);
-        }
+        nav li { border-left: 1px solid rgba(255, 255, 255, 0.08); }
+        nav li:last-child { border-right: 1px solid rgba(255, 255, 255, 0.08); }
 
         nav a {
             display: block;
-            padding: 1rem 1.5rem;
+            padding: 1rem 1.4rem;
             color: rgba(255, 255, 255, 0.72);
             text-decoration: none;
-            font-size: 0.78rem;
-            font-weight: 400;
+            font-size: 0.74rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             transition: all 0.25s ease;
             position: relative;
         }
 
-        nav a:hover {
-            color: var(--brass);
-            background: rgba(156, 123, 62, 0.06);
-        }
+        nav a:hover { color: var(--brass); background: rgba(156, 123, 62, 0.06); }
 
         nav a::after {
             content: "";
@@ -180,10 +140,7 @@
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
-
-        nav a:hover::after {
-            width: 60%;
-        }
+        nav a:hover::after { width: 60%; }
 
         /* ===== HERO ===== */
         .hero {
@@ -196,7 +153,6 @@
             border-bottom: 1px solid rgba(156, 123, 62, 0.2);
         }
 
-        /* Структурные линии на фоне hero */
         .hero-grid {
             position: absolute;
             inset: 0;
@@ -215,17 +171,11 @@
             pointer-events: none;
             font-weight: 400;
         }
-
         .hero-symbol.s1 { top: 12%; left: 4%; font-size: 22rem; }
         .hero-symbol.s2 { bottom: -8%; right: 6%; font-size: 26rem; }
         .hero-symbol.s3 { top: 45%; right: 15%; font-size: 8rem; color: rgba(156, 123, 62, 0.05); }
 
-        .hero-inner {
-            max-width: 1360px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
+        .hero-inner { max-width: 1360px; margin: 0 auto; position: relative; z-index: 2; }
 
         .hero-meta {
             display: flex;
@@ -238,14 +188,7 @@
             letter-spacing: 4px;
             text-transform: uppercase;
         }
-
-        .hero-meta::before {
-            content: "";
-            width: 40px;
-            height: 1px;
-            background: var(--brass);
-            opacity: 0.6;
-        }
+        .hero-meta::before { content: ""; width: 40px; height: 1px; background: var(--brass); opacity: 0.6; }
 
         .hero h1 {
             font-family: 'Cormorant Garamond', serif;
@@ -256,12 +199,7 @@
             max-width: 1000px;
             margin-bottom: 2rem;
         }
-
-        .hero h1 em {
-            font-style: italic;
-            color: var(--brass);
-            font-weight: 400;
-        }
+        .hero h1 em { font-style: italic; color: var(--brass); font-weight: 400; }
 
         .hero-lead {
             max-width: 640px;
@@ -274,11 +212,7 @@
             padding-left: 1.5rem;
         }
 
-        .hero-actions {
-            display: flex;
-            gap: 0;
-            flex-wrap: wrap;
-        }
+        .hero-actions { display: flex; gap: 0; flex-wrap: wrap; }
 
         .btn {
             display: inline-flex;
@@ -297,34 +231,15 @@
             border-radius: 0;
         }
 
-        .btn-primary {
-            background: var(--brass);
-            color: var(--ink);
-            border: 1px solid var(--brass);
-        }
+        .btn-primary { background: var(--brass); color: var(--ink); border: 1px solid var(--brass); }
+        .btn-primary:hover { background: transparent; color: var(--brass); }
 
-        .btn-primary:hover {
-            background: transparent;
-            color: var(--brass);
-        }
+        .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255, 255, 255, 0.25); }
+        .btn-outline:hover { border-color: var(--brass); color: var(--brass); }
 
-        .btn-outline {
-            background: transparent;
-            color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-        }
+        .btn-arrow { font-family: 'Inter', sans-serif; font-size: 1rem; }
 
-        .btn-outline:hover {
-            border-color: var(--brass);
-            color: var(--brass);
-        }
-
-        .btn-arrow {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-        }
-
-        /* ===== ДЕВИЗ / МАНИФЕСТ ===== */
+        /* ===== МАНИФЕСТ ===== */
         .manifesto {
             position: relative;
             z-index: 1;
@@ -332,7 +247,6 @@
             padding: 5rem 2.5rem;
             border-bottom: 1px solid var(--line);
         }
-
         .manifesto-inner {
             max-width: 1360px;
             margin: 0 auto;
@@ -341,7 +255,6 @@
             gap: 4rem;
             align-items: start;
         }
-
         .manifesto-label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.7rem;
@@ -352,7 +265,6 @@
             border-top: 1px solid var(--brass);
             display: inline-block;
         }
-
         .manifesto-text {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(1.3rem, 2.2vw, 1.8rem);
@@ -362,12 +274,7 @@
             font-style: italic;
             max-width: 900px;
         }
-
-        .manifesto-text strong {
-            color: var(--ink);
-            font-weight: 600;
-            font-style: normal;
-        }
+        .manifesto-text strong { color: var(--ink); font-weight: 600; font-style: normal; }
 
         /* ===== СТАТИСТИКА ===== */
         .stats {
@@ -377,22 +284,17 @@
             border-bottom: 1px solid var(--line);
             padding: 0 2.5rem;
         }
-
         .stats-inner {
             max-width: 1360px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
         }
-
         .stat {
             padding: 3rem 2rem;
             border-right: 1px solid var(--line);
-            position: relative;
         }
-
         .stat:last-child { border-right: none; }
-
         .stat-num {
             font-family: 'Cormorant Garamond', serif;
             font-size: 3rem;
@@ -402,7 +304,6 @@
             margin-bottom: 0.8rem;
             letter-spacing: -1px;
         }
-
         .stat-num sup {
             font-size: 1.2rem;
             color: var(--brass);
@@ -410,7 +311,6 @@
             margin-right: 0.15rem;
             font-family: 'Cormorant Garamond', serif;
         }
-
         .stat-label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.68rem;
@@ -419,22 +319,15 @@
             text-transform: uppercase;
         }
 
-        /* ===== СЕКЦИИ ===== */
+        /* ===== БЛОКИ ===== */
         section.block {
             position: relative;
             z-index: 1;
             padding: 6rem 2.5rem;
             border-bottom: 1px solid var(--line);
         }
-
-        section.block.alt {
-            background: var(--paper-warm);
-        }
-
-        .block-inner {
-            max-width: 1360px;
-            margin: 0 auto;
-        }
+        section.block.alt { background: var(--paper-warm); }
+        .block-inner { max-width: 1360px; margin: 0 auto; }
 
         .section-head {
             display: grid;
@@ -445,7 +338,6 @@
             padding-bottom: 2rem;
             border-bottom: 1px solid var(--line-dark);
         }
-
         .section-num {
             font-family: 'Cormorant Garamond', serif;
             font-size: 4rem;
@@ -455,13 +347,7 @@
             letter-spacing: -2px;
             font-style: italic;
         }
-
-        .section-title-wrap {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-
+        .section-title-wrap { display: flex; flex-direction: column; gap: 0.6rem; }
         .section-kicker {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.7rem;
@@ -469,7 +355,6 @@
             letter-spacing: 4px;
             text-transform: uppercase;
         }
-
         .section-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(1.8rem, 3vw, 2.6rem);
@@ -478,14 +363,174 @@
             letter-spacing: -0.5px;
             line-height: 1.15;
         }
-
         .section-desc {
             color: var(--text-soft);
-            max-width: 560px;
+            max-width: 720px;
             margin-top: 0.5rem;
             font-size: 0.95rem;
             font-weight: 300;
         }
+
+        /* ===== ФИЛЬТРЫ МАТЕРИАЛОВ ===== */
+        .materials-filters {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--ink);
+            color: var(--white);
+            border: 1px solid rgba(156, 123, 62, 0.3);
+        }
+        .filter-row {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 2rem;
+            align-items: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(156, 123, 62, 0.15);
+        }
+        .filter-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .filter-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--brass);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        .filter-tabs { display: flex; gap: 0; flex-wrap: wrap; }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 0.6rem 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            margin-left: -1px;
+        }
+        .filter-btn:first-child { margin-left: 0; }
+        .filter-btn:hover { color: var(--brass); border-color: var(--brass); }
+        .filter-btn.active {
+            background: var(--brass);
+            color: var(--ink);
+            border-color: var(--brass);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== КАТАЛОГ ТЕМ ===== */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 1px solid var(--line-dark);
+            background: var(--line-dark);
+        }
+
+        .topic-card {
+            background: var(--paper);
+            padding: 2rem 1.8rem 2.2rem;
+            position: relative;
+            transition: background 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 260px;
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+        .topic-card:hover { background: var(--white); }
+        .topic-card.hidden { display: none; }
+
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1.2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line-dark);
+        }
+        .topic-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--brass);
+            font-style: italic;
+            font-weight: 500;
+        }
+        .topic-subject {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .topic-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.7rem;
+            line-height: 1.25;
+            letter-spacing: -0.2px;
+        }
+        .topic-card p {
+            color: var(--text-soft);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            font-weight: 300;
+            flex: 1;
+            margin-bottom: 1.2rem;
+        }
+
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            border: 1px solid var(--line-dark);
+            color: var(--text-soft);
+            background: var(--paper-warm);
+        }
+        .topic-card:hover .tag { background: var(--paper); }
+
+        .tag.brass { border-color: var(--brass); color: var(--brass-muted); }
+
+        .topic-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            padding-top: 1rem;
+            border-top: 1px solid var(--line-dark);
+        }
+        .topic-meta-items { display: flex; gap: 0.9rem; }
+        .topic-meta-items span::before {
+            content: "▪";
+            color: var(--brass);
+            margin-right: 0.4rem;
+        }
+        .topic-arrow {
+            color: var(--brass);
+            font-family: 'Inter', sans-serif;
+            transition: transform 0.3s ease;
+        }
+        .topic-card:hover .topic-arrow { transform: translateX(4px); }
 
         /* ===== КАРТОЧКИ ===== */
         .grid {
@@ -494,22 +539,16 @@
             background: var(--line);
             border: 1px solid var(--line);
         }
-
         .grid-3 { grid-template-columns: repeat(3, 1fr); }
         .grid-4 { grid-template-columns: repeat(4, 1fr); }
 
         .card {
             background: var(--paper);
             padding: 2.5rem 2rem;
-            position: relative;
             transition: background 0.3s ease;
         }
-
         section.block.alt .card { background: var(--paper-warm); }
-
-        .card:hover {
-            background: var(--white);
-        }
+        .card:hover { background: var(--white); }
 
         .card-mark {
             font-family: 'Cormorant Garamond', serif;
@@ -522,13 +561,7 @@
             align-items: center;
             gap: 0.7rem;
         }
-
-        .card-mark::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--line-dark);
-        }
+        .card-mark::after { content: ""; flex: 1; height: 1px; background: var(--line-dark); }
 
         .card h3 {
             font-family: 'Cormorant Garamond', serif;
@@ -536,36 +569,18 @@
             font-weight: 600;
             color: var(--ink);
             margin-bottom: 0.8rem;
-            letter-spacing: -0.2px;
         }
+        .card p { color: var(--text-soft); font-size: 0.92rem; line-height: 1.7; font-weight: 300; }
 
-        .card p {
-            color: var(--text-soft);
-            font-size: 0.92rem;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
-        /* Заглушки строк */
-        .placeholder-line {
-            height: 1px;
-            background: var(--line-dark);
-            margin-top: 1.2rem;
-        }
-
-        .placeholder-line + .placeholder-line {
-            margin-top: 0.6rem;
-            width: 55%;
-        }
+        .placeholder-line { height: 1px; background: var(--line-dark); margin-top: 1.2rem; }
+        .placeholder-line + .placeholder-line { margin-top: 0.6rem; width: 55%; }
 
         /* ===== ЦЕНЫ ===== */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0;
             border: 1px solid var(--line-dark);
         }
-
         .price-card {
             background: var(--paper);
             padding: 3rem 2.2rem;
@@ -574,28 +589,18 @@
             display: flex;
             flex-direction: column;
         }
-
         .price-card:last-child { border-right: none; }
-
-        .price-card.featured {
-            background: var(--ink);
-            color: var(--white);
-        }
-
+        .price-card.featured { background: var(--ink); color: var(--white); }
         .price-card.featured .price-name,
         .price-card.featured .price-value { color: var(--white); }
-
         .price-card.featured .price-period,
         .price-card.featured .price-features li { color: rgba(255, 255, 255, 0.65); }
-
         .price-card.featured .price-currency { color: var(--brass); }
-
         .price-card.featured .price-features li::before { color: var(--brass); }
 
         .price-badge {
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 0; right: 0;
             background: var(--brass);
             color: var(--ink);
             font-family: 'JetBrains Mono', monospace;
@@ -604,7 +609,6 @@
             text-transform: uppercase;
             padding: 0.4rem 0.9rem;
         }
-
         .price-name {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.72rem;
@@ -613,7 +617,6 @@
             color: var(--text-muted);
             margin-bottom: 1.5rem;
         }
-
         .price-value {
             font-family: 'Cormorant Garamond', serif;
             font-size: 3.5rem;
@@ -622,25 +625,8 @@
             line-height: 1;
             letter-spacing: -2px;
         }
-
-        .price-currency {
-            font-size: 1.5rem;
-            color: var(--brass);
-            vertical-align: super;
-            margin-right: 0.2rem;
-            font-weight: 500;
-        }
-
-        .price-period {
-            display: block;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 300;
-            letter-spacing: 0;
-            margin-top: 0.5rem;
-        }
-
+        .price-currency { font-size: 1.5rem; color: var(--brass); vertical-align: super; margin-right: 0.2rem; font-weight: 500; }
+        .price-period { display: block; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--text-muted); font-weight: 300; margin-top: 0.5rem; }
         .price-features {
             list-style: none;
             margin: 2rem 0 2.5rem;
@@ -648,11 +634,7 @@
             border-top: 1px solid var(--line-dark);
             flex: 1;
         }
-
-        .price-card.featured .price-features {
-            border-top-color: rgba(255, 255, 255, 0.12);
-        }
-
+        .price-card.featured .price-features { border-top-color: rgba(255, 255, 255, 0.12); }
         .price-features li {
             padding: 0.6rem 0;
             color: var(--text-soft);
@@ -662,27 +644,15 @@
             gap: 0.8rem;
             font-weight: 300;
         }
-
-        .price-features li::before {
-            content: "—";
-            color: var(--brass);
-            font-weight: 500;
-            flex-shrink: 0;
-        }
-
-        .price-card .btn {
-            width: 100%;
-            justify-content: center;
-        }
+        .price-features li::before { content: "—"; color: var(--brass); font-weight: 500; flex-shrink: 0; }
+        .price-card .btn { width: 100%; justify-content: center; }
 
         /* ===== КОНТАКТЫ ===== */
         .contact-layout {
             display: grid;
             grid-template-columns: 1fr 1.1fr;
-            gap: 0;
             border: 1px solid var(--line-dark);
         }
-
         .contact-side {
             background: var(--ink);
             color: var(--white);
@@ -690,30 +660,25 @@
             position: relative;
             overflow: hidden;
         }
-
         .contact-side::after {
             content: "§";
             position: absolute;
-            bottom: -4rem;
-            right: -1rem;
+            bottom: -4rem; right: -1rem;
             font-family: 'Cormorant Garamond', serif;
             font-size: 16rem;
             color: rgba(156, 123, 62, 0.06);
             line-height: 1;
         }
-
         .contact-side h3 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.6rem;
             font-weight: 500;
             margin-bottom: 2.5rem;
-            color: var(--white);
-            position: relative;
-            z-index: 1;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid rgba(156, 123, 62, 0.3);
+            position: relative;
+            z-index: 1;
         }
-
         .contact-item {
             display: grid;
             grid-template-columns: 40px 1fr;
@@ -721,17 +686,8 @@
             margin-bottom: 2rem;
             position: relative;
             z-index: 1;
-            align-items: start;
         }
-
-        .contact-item .glyph {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            color: var(--brass);
-            text-align: center;
-            padding-top: 0.1rem;
-        }
-
+        .contact-item .glyph { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--brass); text-align: center; }
         .contact-item .label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
@@ -740,18 +696,9 @@
             text-transform: uppercase;
             margin-bottom: 0.4rem;
         }
+        .contact-item .value { color: var(--white); font-size: 0.95rem; font-weight: 300; }
 
-        .contact-item .value {
-            color: var(--white);
-            font-size: 0.95rem;
-            font-weight: 300;
-        }
-
-        .contact-form-wrap {
-            background: var(--paper);
-            padding: 3.5rem 2.5rem;
-        }
-
+        .contact-form-wrap { background: var(--paper); padding: 3.5rem 2.5rem; }
         .contact-form-wrap h3 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.6rem;
@@ -761,11 +708,7 @@
             padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--line-dark);
         }
-
-        .form-field {
-            margin-bottom: 1.8rem;
-        }
-
+        .form-field { margin-bottom: 1.8rem; }
         .form-field label {
             display: block;
             font-family: 'JetBrains Mono', monospace;
@@ -775,7 +718,6 @@
             text-transform: uppercase;
             margin-bottom: 0.7rem;
         }
-
         .form-field input,
         .form-field textarea {
             width: 100%;
@@ -790,32 +732,13 @@
             font-weight: 300;
             border-radius: 0;
         }
-
         .form-field input:focus,
-        .form-field textarea:focus {
-            outline: none;
-            border-bottom-color: var(--brass);
-        }
-
-        .form-field textarea {
-            resize: vertical;
-            min-height: 90px;
-        }
+        .form-field textarea:focus { outline: none; border-bottom-color: var(--brass); }
+        .form-field textarea { resize: vertical; min-height: 90px; }
 
         /* ===== ПОДВАЛ ===== */
-        footer {
-            background: var(--ink-deep);
-            color: rgba(255, 255, 255, 0.5);
-            padding: 4rem 2.5rem 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .footer-inner {
-            max-width: 1360px;
-            margin: 0 auto;
-        }
-
+        footer { background: var(--ink-deep); color: rgba(255, 255, 255, 0.5); padding: 4rem 2.5rem 2rem; position: relative; z-index: 1; }
+        .footer-inner { max-width: 1360px; margin: 0 auto; }
         .footer-top {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -823,31 +746,9 @@
             padding-bottom: 3rem;
             border-bottom: 1px solid rgba(156, 123, 62, 0.15);
         }
-
-        .footer-brand-mark {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            color: var(--brass);
-            margin-bottom: 1rem;
-            line-height: 1;
-        }
-
-        .footer-brand h4 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--white);
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 0.8rem;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-brand p {
-            font-size: 0.85rem;
-            line-height: 1.7;
-            font-weight: 300;
-            max-width: 320px;
-        }
-
+        .footer-brand-mark { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--brass); margin-bottom: 1rem; line-height: 1; }
+        .footer-brand h4 { font-family: 'Cormorant Garamond', serif; color: var(--white); font-size: 1.2rem; font-weight: 500; margin-bottom: 0.8rem; }
+        .footer-brand p { font-size: 0.85rem; line-height: 1.7; font-weight: 300; max-width: 320px; }
         .footer-col h5 {
             font-family: 'JetBrains Mono', monospace;
             color: var(--brass);
@@ -857,7 +758,6 @@
             margin-bottom: 1.2rem;
             font-weight: 400;
         }
-
         .footer-col a {
             display: block;
             color: rgba(255, 255, 255, 0.5);
@@ -867,9 +767,7 @@
             transition: color 0.25s ease;
             font-weight: 300;
         }
-
         .footer-col a:hover { color: var(--brass); }
-
         .footer-bottom {
             margin-top: 2rem;
             display: flex;
@@ -882,31 +780,26 @@
             flex-wrap: wrap;
             gap: 1rem;
         }
-
-        .footer-symbols {
-            color: var(--brass);
-            opacity: 0.7;
-            letter-spacing: 6px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.9rem;
-        }
+        .footer-symbols { color: var(--brass); opacity: 0.7; letter-spacing: 6px; font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; }
 
         /* ===== АДАПТИВ ===== */
         @media (max-width: 1024px) {
             .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .topics-grid { grid-template-columns: repeat(2, 1fr); }
             .pricing-grid { grid-template-columns: 1fr; }
             .price-card { border-right: none; border-bottom: 1px solid var(--line-dark); }
             .price-card:last-child { border-bottom: none; }
             .contact-layout { grid-template-columns: 1fr; }
             .manifesto-inner { grid-template-columns: 1fr; gap: 1.5rem; }
             .footer-top { grid-template-columns: 1fr 1fr; }
+            .filter-row { grid-template-columns: 1fr; gap: 0.8rem; }
         }
 
         @media (max-width: 720px) {
             .nav-container { flex-direction: column; gap: 1rem; padding: 1rem 1.25rem; }
             nav ul { flex-wrap: wrap; justify-content: center; border: 1px solid rgba(255,255,255,0.08); }
             nav li { border: none; border-right: 1px solid rgba(255,255,255,0.08); }
-            nav a { padding: 0.7rem 0.9rem; font-size: 0.68rem; letter-spacing: 1.5px; }
+            nav a { padding: 0.7rem 0.9rem; font-size: 0.66rem; letter-spacing: 1.5px; }
             .hero { padding: 5rem 1.25rem 4rem; }
             .hero-symbol.s1, .hero-symbol.s2 { display: none; }
             section.block { padding: 4rem 1.25rem; }
@@ -915,9 +808,10 @@
             .stats-inner { grid-template-columns: 1fr 1fr; }
             .stat { padding: 2rem 1.25rem; border-bottom: 1px solid var(--line); }
             .stat:nth-child(2n) { border-right: none; }
-            .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .grid-3, .grid-4, .topics-grid { grid-template-columns: 1fr; }
             .contact-side, .contact-form-wrap { padding: 2.5rem 1.5rem; }
             .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+            .materials-filters { padding: 1.25rem; }
         }
     </style>
 </head>
@@ -939,6 +833,7 @@
             <nav>
                 <ul>
                     <li><a href="#courses">Курсы</a></li>
+                    <li><a href="#materials">Материалы</a></li>
                     <li><a href="#teachers">Преподаватели</a></li>
                     <li><a href="#results">Результаты</a></li>
                     <li><a href="#pricing">Цены</a></li>
@@ -957,22 +852,13 @@
 
         <div class="hero-inner">
             <div class="hero-meta">Основано на принципах науки</div>
-
-            <h1>
-                Академическая подготовка, <em>основанная на доказательствах</em>
-            </h1>
-
+            <h1>Академическая подготовка, <em>основанная на доказательствах</em></h1>
             <p class="hero-lead">
                 Здесь появится главный тезис Центра Подготовки — сдержанный, точный, обращённый к разуму и вдумчивости. Место для формулировки образовательной философии.
             </p>
-
             <div class="hero-actions">
-                <a href="#courses" class="btn btn-primary">
-                    Программы <span class="btn-arrow">→</span>
-                </a>
-                <a href="#contacts" class="btn btn-outline">
-                    Записаться на консультацию
-                </a>
+                <a href="#materials" class="btn btn-primary">Материалы <span class="btn-arrow">→</span></a>
+                <a href="#contacts" class="btn btn-outline">Записаться на консультацию</a>
             </div>
         </div>
     </section>
@@ -990,22 +876,10 @@
     <!-- СТАТИСТИКА -->
     <div class="stats">
         <div class="stats-inner">
-            <div class="stat">
-                <div class="stat-num"><sup>∑</sup>00</div>
-                <div class="stat-label">Учеников</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num"><sup>π</sup>00</div>
-                <div class="stat-label">Средний балл</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num"><sup>∞</sup>00</div>
-                <div class="stat-label">Лет опыта</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num"><sup>√</sup>00%</div>
-                <div class="stat-label">Довольны</div>
-            </div>
+            <div class="stat"><div class="stat-num"><sup>∑</sup>00</div><div class="stat-label">Учеников</div></div>
+            <div class="stat"><div class="stat-num"><sup>π</sup>00</div><div class="stat-label">Средний балл</div></div>
+            <div class="stat"><div class="stat-num"><sup>∞</sup>00</div><div class="stat-label">Лет опыта</div></div>
+            <div class="stat"><div class="stat-num"><sup>√</sup>00%</div><div class="stat-label">Довольны</div></div>
         </div>
     </div>
 
@@ -1022,138 +896,549 @@
             </div>
 
             <div class="grid grid-3">
-                <div class="card">
-                    <div class="card-mark">∑</div>
-                    <h3>Математика</h3>
-                    <p>Описание курса появится здесь позже.</p>
-                    <div class="placeholder-line"></div>
-                    <div class="placeholder-line"></div>
+                <div class="card"><div class="card-mark">∑</div><h3>Математика</h3><p>Описание курса появится здесь позже.</p><div class="placeholder-line"></div><div class="placeholder-line"></div></div>
+                <div class="card"><div class="card-mark">π</div><h3>Физика</h3><p>Описание курса появится здесь позже.</p><div class="placeholder-line"></div><div class="placeholder-line"></div></div>
+                <div class="card"><div class="card-mark">∴</div><h3>Информатика</h3><p>Описание курса появится здесь позже.</p><div class="placeholder-line"></div><div class="placeholder-line"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== МАТЕРИАЛЫ ==================== -->
+    <section class="block alt" id="materials">
+        <div class="block-inner">
+            <div class="section-head">
+                <div class="section-num">II</div>
+                <div class="section-title-wrap">
+                    <span class="section-kicker">Раздел второй · Библиотека</span>
+                    <h2 class="section-title">Учебные материалы</h2>
+                    <p class="section-desc">
+                        Систематизированный каталог по подготовке к ВПР, МЦКО, ОГЭ и ЕГЭ. Каждая тема снабжена конспектом, разбором типовых задач и тренировочным набором.
+                    </p>
                 </div>
-                <div class="card">
-                    <div class="card-mark">π</div>
-                    <h3>Физика</h3>
-                    <p>Описание курса появится здесь позже.</p>
-                    <div class="placeholder-line"></div>
-                    <div class="placeholder-line"></div>
+            </div>
+
+            <!-- Фильтры -->
+            <div class="materials-filters">
+                <div class="filter-row">
+                    <span class="filter-label">Экзамен</span>
+                    <div class="filter-tabs" data-filter-group="exam">
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="vpr">ВПР</button>
+                        <button class="filter-btn" data-filter="mcko">МЦКО</button>
+                        <button class="filter-btn" data-filter="oge">ОГЭ</button>
+                        <button class="filter-btn" data-filter="ege-base">ЕГЭ база</button>
+                        <button class="filter-btn" data-filter="ege-prof">ЕГЭ профиль</button>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-mark">∵</div>
-                    <h3>Русский язык</h3>
-                    <p>Описание курса появится здесь позже.</p>
-                    <div class="placeholder-line"></div>
-                    <div class="placeholder-line"></div>
+                <div class="filter-row">
+                    <span class="filter-label">Предмет</span>
+                    <div class="filter-tabs" data-filter-group="subject">
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="math">Математика</button>
+                        <button class="filter-btn" data-filter="inf">Информатика</button>
+                        <button class="filter-btn" data-filter="phys">Физика</button>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-mark">∴</div>
-                    <h3>Информатика</h3>
-                    <p>Описание курса появится здесь позже.</p>
-                    <div class="placeholder-line"></div>
-                    <div class="placeholder-line"></div>
-                </div>
-                <div class="card">
-                    <div class="card-mark">λ</div>
-                    <h3>Химия</h3>
-                    <p>Описание курса появится здесь позже.</p>
-                    <div class="placeholder-line"></div>
-                    <div class="placeholder-line"></div>
-                </div>
-                <div class="card">
-                    <div class="card-mark">Δ</div>
-                    <h3>Биология</h3>
-                    <p>Описание курса появится здесь позже.</p>
-                    <div class="placeholder-line"></div>
-                    <div class="placeholder-line"></div>
-                </div>
+            </div>
+
+            <!-- Каталог тем -->
+            <div class="topics-grid" id="topics-grid">
+
+                <!-- МАТЕМАТИКА -->
+                <article class="topic-card" data-subject="math" data-exam="oge ege-base ege-prof vpr mcko">
+                    <div class="topic-header"><span class="topic-number">I</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ база</span><span class="tag">ЕГЭ профиль</span><span class="tag">ВПР</span></div>
+                    <h3>Числа и вычисления</h3>
+                    <p>Действия с рациональными числами, степени, корни, модуль. Порядок действий и вычислительные приёмы.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="oge ege-base ege-prof vpr mcko">
+                    <div class="topic-header"><span class="topic-number">II</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ профиль</span><span class="tag">МЦКО</span></div>
+                    <h3>Алгебраические выражения</h3>
+                    <p>Преобразования многочленов, формулы сокращённого умножения, рациональные дроби, тождества.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="oge ege-base ege-prof vpr">
+                    <div class="topic-header"><span class="topic-number">III</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ база</span><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Уравнения</h3>
+                    <p>Линейные, квадратные, рациональные, иррациональные, показательные, логарифмические и тригонометрические.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="oge ege-prof">
+                    <div class="topic-header"><span class="topic-number">IV</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Неравенства и системы</h3>
+                    <p>Линейные, квадратные, рациональные, показательные и логарифмические. Метод интервалов, системы и совокупности.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="oge ege-base ege-prof vpr mcko">
+                    <div class="topic-header"><span class="topic-number">V</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ база</span><span class="tag">ЕГЭ профиль</span><span class="tag">ВПР</span></div>
+                    <h3>Функции и графики</h3>
+                    <p>Линейная, квадратичная, гипербола, степенные, показательные и логарифмические функции. Преобразования графиков.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="oge ege-base">
+                    <div class="topic-header"><span class="topic-number">VI</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ база</span></div>
+                    <h3>Текстовые задачи</h3>
+                    <p>Задачи на движение, работу, смеси и сплавы, проценты. Составление уравнений и систем.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="oge ege-base">
+                    <div class="topic-header"><span class="topic-number">VII</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ база</span><span class="tag">ВПР</span></div>
+                    <h3>Проценты и пропорции</h3>
+                    <p>Простые и сложные проценты, задачи на концентрацию, пропорциональные зависимости.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="oge ege-prof">
+                    <div class="topic-header"><span class="topic-number">VIII</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Прогрессии</h3>
+                    <p>Арифметическая и геометрическая прогрессии. Формулы общего члена, суммы, свойства.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="ege-prof">
+                    <div class="topic-header"><span class="topic-number">IX</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Тригонометрия</h3>
+                    <p>Тригонометрические функции, формулы приведения, преобразования выражений, уравнения, отбор корней на отрезке.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="ege-prof">
+                    <div class="topic-header"><span class="topic-number">X</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Логарифмы и показательные уравнения</h3>
+                    <p>Свойства логарифмов, показательные и логарифмические уравнения и неравенства. Методы замены и потенцирования.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="ege-prof">
+                    <div class="topic-header"><span class="topic-number">XI</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Производная и её применение</h3>
+                    <p>Правила дифференцирования, физический и геометрический смысл, исследование функций, экстремумы, наибольшее и наименьшее значения.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="ege-prof">
+                    <div class="topic-header"><span class="topic-number">XII</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Первообразная и интеграл</h3>
+                    <p>Таблица первообразных, правила интегрирования, формула Ньютона—Лейбница, площади криволинейных трапеций.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="oge ege-base ege-prof vpr mcko">
+                    <div class="topic-header"><span class="topic-number">XIII</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ база</span><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Планиметрия: треугольники</h3>
+                    <p>Виды треугольников, теоремы синусов и косинусов, площади, подобие, вписанные и описанные окружности.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="oge ege-base ege-prof vpr">
+                    <div class="topic-header"><span class="topic-number">XIV</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ база</span><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Планиметрия: четырёхугольники и окружность</h3>
+                    <p>Параллелограммы, трапеции, вписанные и описанные четырёхугольники. Вписанные углы, касательные, хорды.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="ege-prof">
+                    <div class="topic-header"><span class="topic-number">XV</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Стереометрия</h3>
+                    <p>Многогранники, тела вращения, объёмы и площади поверхностей, углы и расстояния в пространстве.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="ege-prof">
+                    <div class="topic-header"><span class="topic-number">XVI</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Векторы и метод координат</h3>
+                    <p>Операции над векторами, скалярное произведение, координатный метод в стереометрии.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="ege-base ege-prof">
+                    <div class="topic-header"><span class="topic-number">XVII</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ база</span><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Комбинаторика. Теория вероятностей</h3>
+                    <p>Правило умножения, перестановки, размещения, сочетания. Классическое определение вероятности, теоремы сложения и умножения.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="ege-base ege-prof">
+                    <div class="topic-header"><span class="topic-number">XVIII</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ база</span><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Статистика и анализ данных</h3>
+                    <p>Среднее, медиана, мода, размах, дисперсия. Таблицы, диаграммы, графики реальных зависимостей.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="ege-prof">
+                    <div class="topic-header"><span class="topic-number">XIX</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Задачи с параметром</h3>
+                    <p>Аналитический и графический методы. Уравнения и неравенства с параметром, системы, исследование решений.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="math" data-exam="ege-prof">
+                    <div class="topic-header"><span class="topic-number">XX</span><span class="topic-subject">Математика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ профиль</span></div>
+                    <h3>Задачи повышенной сложности</h3>
+                    <p>Олимпиадные приёмы, нестандартные задачи, оценка и метод математической индукции, задачи на числа и делимость.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <!-- ИНФОРМАТИКА -->
+                <article class="topic-card" data-subject="inf" data-exam="oge ege vpr">
+                    <div class="topic-header"><span class="topic-number">I</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span><span class="tag">ВПР</span></div>
+                    <h3>Системы счисления</h3>
+                    <p>Позиционные системы, перевод чисел, арифметические операции в разных основаниях.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="oge ege vpr">
+                    <div class="topic-header"><span class="topic-number">II</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Кодирование информации</h3>
+                    <p>Количество информации, формулы Хартли и Шеннона, кодирование текста, звука, изображений.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">III</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Алгебра логики</h3>
+                    <p>Логические операции, таблицы истинности, законы логики, упрощение выражений, логические уравнения.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">IV</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Алгоритмы и блок-схемы</h3>
+                    <p>Свойства алгоритмов, формы записи, исполнители, трассировка, формальное исполнение алгоритма.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">V</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Программирование: базовые конструкции</h3>
+                    <p>Переменные, типы данных, ветвление, циклы. Python и Pascal — синтаксис и практика.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="ege">
+                    <div class="topic-header"><span class="topic-number">VI</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ</span></div>
+                    <h3>Программирование: функции и процедуры</h3>
+                    <p>Область видимости, рекурсия, передача параметров, структурное программирование.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">VII</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Обработка массивов</h3>
+                    <p>Одномерные и двумерные массивы, поиск, сортировка, статистика, работа с индексами.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="ege">
+                    <div class="topic-header"><span class="topic-number">VIII</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ</span></div>
+                    <h3>Обработка строк</h3>
+                    <p>Функции и методы работы со строками, поиск подстрок, разбиение, замена, проверка условий.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="ege">
+                    <div class="topic-header"><span class="topic-number">IX</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ</span></div>
+                    <h3>Файлы и потоки данных</h3>
+                    <p>Чтение и запись файлов, обработка больших наборов данных, потоковые вычисления.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="oge ege vpr">
+                    <div class="topic-header"><span class="topic-number">X</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span><span class="tag">ВПР</span></div>
+                    <h3>Электронные таблицы</h3>
+                    <p>Формулы, относительные и абсолютные ссылки, диапазоны, функции, диаграммы, сортировка и фильтрация.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="ege">
+                    <div class="topic-header"><span class="topic-number">XI</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ</span></div>
+                    <h3>Базы данных и SQL</h3>
+                    <p>Реляционная модель, ключи, нормализация, запросы SELECT, JOIN, агрегатные функции, группировка.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">XII</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Теория графов</h3>
+                    <p>Способы задания графов, матрица смежности, обход в глубину и ширину, поиск кратчайшего пути.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="ege">
+                    <div class="topic-header"><span class="topic-number">XIII</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ</span></div>
+                    <h3>Динамическое программирование</h3>
+                    <p>Задачи на подсчёт, оптимизация, задача о рюкзаке, поиск наибольшей/наименьшей суммы.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="ege">
+                    <div class="topic-header"><span class="topic-number">XIV</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ</span></div>
+                    <h3>Сортировка и поиск</h3>
+                    <p>Алгоритмы сортировки, бинарный поиск, оценка сложности, выбор оптимального алгоритма.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="ege">
+                    <div class="topic-header"><span class="topic-number">XV</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ</span></div>
+                    <h3>Теория игр</h3>
+                    <p>Игры с полной информацией, выигрышные позиции, дерево игры, стратегии.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="ege">
+                    <div class="topic-header"><span class="topic-number">XVI</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ</span></div>
+                    <h3>Компьютерные сети</h3>
+                    <p>IP-адресация, маски, протоколы, адресация в интернете, поиск информации.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="inf" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">XVII</span><span class="topic-subject">Информатика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Информационная безопасность</h3>
+                    <p>Криптография, шифры, хеширование, защита информации, правовые аспекты.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <!-- ФИЗИКА -->
+                <article class="topic-card" data-subject="phys" data-exam="oge ege vpr mcko">
+                    <div class="topic-header"><span class="topic-number">I</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span><span class="tag">ВПР</span></div>
+                    <h3>Кинематика прямолинейного движения</h3>
+                    <p>Равномерное и равноускоренное движение, графики, уравнения движения, относительность.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">II</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Кинематика криволинейного движения</h3>
+                    <p>Движение по окружности, центростремительное ускорение, угловая скорость, баллистика.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege vpr mcko">
+                    <div class="topic-header"><span class="topic-number">III</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span><span class="tag">МЦКО</span></div>
+                    <h3>Динамика. Законы Ньютона</h3>
+                    <p>Три закона Ньютона, инерциальные системы отсчёта, силы в механике, применение законов к решению задач.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">IV</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Силы в природе</h3>
+                    <p>Гравитация, упругость, трение. Закон всемирного тяготения, вес тела, невесомость.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">V</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Статика и гидростатика</h3>
+                    <p>Условия равновесия, момент силы, центр тяжести. Давление, закон Паскаля, сила Архимеда.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">VI</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Импульс. Закон сохранения</h3>
+                    <p>Импульс тела и силы, закон сохранения импульса, упругие и неупругие столкновения.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">VII</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Работа, мощность, энергия</h3>
+                    <p>Механическая работа, мощность, кинетическая и потенциальная энергия. Закон сохранения энергии.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">VIII</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Механические колебания и волны</h3>
+                    <p>Гармонические колебания, маятники, звук, механические волны, характеристики волн.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">IX</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Молекулярная физика. Идеальный газ</h3>
+                    <p>Основные положения МКТ, уравнение состояния, изопроцессы, газовые законы.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">X</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Основы термодинамики</h3>
+                    <p>Внутренняя энергия, работа, количество теплоты. Первый и второй законы термодинамики, КПД тепловых машин.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">XI</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Электростатика</h3>
+                    <p>Закон Кулона, напряжённость, потенциал, конденсаторы, электроёмкость, энергия поля.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege vpr">
+                    <div class="topic-header"><span class="topic-number">XII</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span><span class="tag">ВПР</span></div>
+                    <h3>Постоянный электрический ток</h3>
+                    <p>Закон Ома, последовательное и параллельное соединение, работа и мощность тока, закон Джоуля—Ленца.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">XIII</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Магнитное поле и электромагнетизм</h3>
+                    <p>Магнитная индукция, сила Ампера и Лоренца, электромагнитная индукция, правило Ленца.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="ege">
+                    <div class="topic-header"><span class="topic-number">XIV</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ</span></div>
+                    <h3>Электромагнитные колебания и волны</h3>
+                    <p>Колебательный контур, переменный ток, трансформатор, шкала электромагнитных волн.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">XV</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Оптика</h3>
+                    <p>Законы отражения и преломления, линзы, построение изображений, волновая оптика, интерференция и дифракция.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="ege">
+                    <div class="topic-header"><span class="topic-number">XVI</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ</span></div>
+                    <h3>Квантовая физика. Фотоэффект</h3>
+                    <p>Гипотеза Планка, фотоны, уравнение Эйнштейна для фотоэффекта, эффект Комптона.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="ege">
+                    <div class="topic-header"><span class="topic-number">XVII</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ЕГЭ</span></div>
+                    <h3>Атомная и ядерная физика</h3>
+                    <p>Строение атома, модель Бора, радиоактивность, ядерные реакции, закон радиоактивного распада.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
+                <article class="topic-card" data-subject="phys" data-exam="oge ege">
+                    <div class="topic-header"><span class="topic-number">XVIII</span><span class="topic-subject">Физика</span></div>
+                    <div class="topic-tags"><span class="tag">ОГЭ</span><span class="tag">ЕГЭ</span></div>
+                    <h3>Методы научного познания</h3>
+                    <p>Физические величины и измерения, погрешности, экспериментальные методы, анализ графиков и таблиц.</p>
+                    <div class="topic-meta"><div class="topic-meta-items"><span>Конспект</span><span>Разбор</span><span>Тренажёр</span></div><span class="topic-arrow">→</span></div>
+                </article>
+
             </div>
         </div>
     </section>
 
     <!-- ПРЕПОДАВАТЕЛИ -->
-    <section class="block alt" id="teachers">
+    <section class="block" id="teachers">
         <div class="block-inner">
             <div class="section-head">
-                <div class="section-num">II</div>
+                <div class="section-num">III</div>
                 <div class="section-title-wrap">
-                    <span class="section-kicker">Раздел второй · Состав</span>
+                    <span class="section-kicker">Раздел третий · Состав</span>
                     <h2 class="section-title">Наши преподаватели</h2>
                     <p class="section-desc">Академический состав, квалификация и научные интересы преподавателей.</p>
                 </div>
             </div>
 
             <div class="grid grid-4">
-                <div class="card">
-                    <div class="card-mark">I</div>
-                    <h3>Имя Фамилия</h3>
-                    <p>Краткое описание преподавателя.</p>
-                    <div class="placeholder-line"></div>
-                </div>
-                <div class="card">
-                    <div class="card-mark">II</div>
-                    <h3>Имя Фамилия</h3>
-                    <p>Краткое описание преподавателя.</p>
-                    <div class="placeholder-line"></div>
-                </div>
-                <div class="card">
-                    <div class="card-mark">III</div>
-                    <h3>Имя Фамилия</h3>
-                    <p>Краткое описание преподавателя.</p>
-                    <div class="placeholder-line"></div>
-                </div>
-                <div class="card">
-                    <div class="card-mark">IV</div>
-                    <h3>Имя Фамилия</h3>
-                    <p>Краткое описание преподавателя.</p>
-                    <div class="placeholder-line"></div>
-                </div>
+                <div class="card"><div class="card-mark">I</div><h3>Имя Фамилия</h3><p>Краткое описание преподавателя.</p><div class="placeholder-line"></div></div>
+                <div class="card"><div class="card-mark">II</div><h3>Имя Фамилия</h3><p>Краткое описание преподавателя.</p><div class="placeholder-line"></div></div>
+                <div class="card"><div class="card-mark">III</div><h3>Имя Фамилия</h3><p>Краткое описание преподавателя.</p><div class="placeholder-line"></div></div>
+                <div class="card"><div class="card-mark">IV</div><h3>Имя Фамилия</h3><p>Краткое описание преподавателя.</p><div class="placeholder-line"></div></div>
             </div>
         </div>
     </section>
 
     <!-- РЕЗУЛЬТАТЫ -->
-    <section class="block" id="results">
+    <section class="block alt" id="results">
         <div class="block-inner">
             <div class="section-head">
-                <div class="section-num">III</div>
+                <div class="section-num">IV</div>
                 <div class="section-title-wrap">
-                    <span class="section-kicker">Раздел третий · Свидетельства</span>
+                    <span class="section-kicker">Раздел четвёртый · Свидетельства</span>
                     <h2 class="section-title">Результаты и отзывы</h2>
                     <p class="section-desc">Объективные данные о результатах учеников и свидетельства родителей.</p>
                 </div>
             </div>
 
             <div class="grid grid-3">
-                <div class="card">
-                    <div class="card-mark">§1</div>
-                    <h3>Отзыв ученика</h3>
-                    <p>Текст отзыва появится здесь.</p>
-                    <div class="placeholder-line"></div>
-                    <div class="placeholder-line"></div>
-                </div>
-                <div class="card">
-                    <div class="card-mark">§2</div>
-                    <h3>Отзыв родителя</h3>
-                    <p>Текст отзыва появится здесь.</p>
-                    <div class="placeholder-line"></div>
-                    <div class="placeholder-line"></div>
-                </div>
-                <div class="card">
-                    <div class="card-mark">§3</div>
-                    <h3>История успеха</h3>
-                    <p>Текст истории появится здесь.</p>
-                    <div class="placeholder-line"></div>
-                    <div class="placeholder-line"></div>
-                </div>
+                <div class="card"><div class="card-mark">§1</div><h3>Отзыв ученика</h3><p>Текст отзыва появится здесь.</p><div class="placeholder-line"></div><div class="placeholder-line"></div></div>
+                <div class="card"><div class="card-mark">§2</div><h3>Отзыв родителя</h3><p>Текст отзыва появится здесь.</p><div class="placeholder-line"></div><div class="placeholder-line"></div></div>
+                <div class="card"><div class="card-mark">§3</div><h3>История успеха</h3><p>Текст истории появится здесь.</p><div class="placeholder-line"></div><div class="placeholder-line"></div></div>
             </div>
         </div>
     </section>
 
     <!-- ЦЕНЫ -->
-    <section class="block alt" id="pricing">
+    <section class="block" id="pricing">
         <div class="block-inner">
             <div class="section-head">
-                <div class="section-num">IV</div>
+                <div class="section-num">V</div>
                 <div class="section-title-wrap">
-                    <span class="section-kicker">Раздел четвёртый · Условия</span>
+                    <span class="section-kicker">Раздел пятый · Условия</span>
                     <h2 class="section-title">Стоимость обучения</h2>
                     <p class="section-desc">Тарифные планы и условия сотрудничества.</p>
                 </div>
@@ -1163,37 +1448,20 @@
                 <div class="price-card">
                     <div class="price-name">Базовый</div>
                     <div class="price-value"><span class="price-currency">₽</span>0<span class="price-period">в месяц</span></div>
-                    <ul class="price-features">
-                        <li>Пункт тарифа</li>
-                        <li>Пункт тарифа</li>
-                        <li>Пункт тарифа</li>
-                    </ul>
+                    <ul class="price-features"><li>Пункт тарифа</li><li>Пункт тарифа</li><li>Пункт тарифа</li></ul>
                     <a href="#contacts" class="btn btn-outline" style="color:var(--ink); border-color:var(--line-dark);">Выбрать план</a>
                 </div>
-
                 <div class="price-card featured">
                     <div class="price-badge">Рекомендовано</div>
                     <div class="price-name">Оптимальный</div>
                     <div class="price-value"><span class="price-currency">₽</span>0<span class="price-period">в месяц</span></div>
-                    <ul class="price-features">
-                        <li>Пункт тарифа</li>
-                        <li>Пункт тарифа</li>
-                        <li>Пункт тарифа</li>
-                        <li>Пункт тарифа</li>
-                    </ul>
+                    <ul class="price-features"><li>Пункт тарифа</li><li>Пункт тарифа</li><li>Пункт тарифа</li><li>Пункт тарифа</li></ul>
                     <a href="#contacts" class="btn btn-primary" style="width:100%; justify-content:center;">Выбрать план</a>
                 </div>
-
                 <div class="price-card">
                     <div class="price-name">Премиум</div>
                     <div class="price-value"><span class="price-currency">₽</span>0<span class="price-period">в месяц</span></div>
-                    <ul class="price-features">
-                        <li>Пункт тарифа</li>
-                        <li>Пункт тарифа</li>
-                        <li>Пункт тарифа</li>
-                        <li>Пункт тарифа</li>
-                        <li>Пункт тарифа</li>
-                    </ul>
+                    <ul class="price-features"><li>Пункт тарифа</li><li>Пункт тарифа</li><li>Пункт тарифа</li><li>Пункт тарифа</li><li>Пункт тарифа</li></ul>
                     <a href="#contacts" class="btn btn-outline" style="color:var(--ink); border-color:var(--line-dark);">Выбрать план</a>
                 </div>
             </div>
@@ -1201,12 +1469,12 @@
     </section>
 
     <!-- КОНТАКТЫ -->
-    <section class="block" id="contacts">
+    <section class="block alt" id="contacts">
         <div class="block-inner">
             <div class="section-head">
-                <div class="section-num">V</div>
+                <div class="section-num">VI</div>
                 <div class="section-title-wrap">
-                    <span class="section-kicker">Раздел пятый · Связь</span>
+                    <span class="section-kicker">Раздел шестой · Связь</span>
                     <h2 class="section-title">Контакты</h2>
                     <p class="section-desc">Способы связаться с приёмной комиссией Центра.</p>
                 </div>
@@ -1215,58 +1483,19 @@
             <div class="contact-layout">
                 <div class="contact-side">
                     <h3>Приёмная комиссия</h3>
-
-                    <div class="contact-item">
-                        <div class="glyph">☎</div>
-                        <div>
-                            <div class="label">Телефон</div>
-                            <div class="value">+7 (___) ___-__-__</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="glyph">@</div>
-                        <div>
-                            <div class="label">Электронная почта</div>
-                            <div class="value">info@example.com</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="glyph">⌂</div>
-                        <div>
-                            <div class="label">Адрес</div>
-                            <div class="value">Город, улица, дом</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="glyph">∞</div>
-                        <div>
-                            <div class="label">Каналы связи</div>
-                            <div class="value">Telegram · VK · YouTube</div>
-                        </div>
-                    </div>
+                    <div class="contact-item"><div class="glyph">☎</div><div><div class="label">Телефон</div><div class="value">+7 (___) ___-__-__</div></div></div>
+                    <div class="contact-item"><div class="glyph">@</div><div><div class="label">Электронная почта</div><div class="value">info@example.com</div></div></div>
+                    <div class="contact-item"><div class="glyph">⌂</div><div><div class="label">Адрес</div><div class="value">Город, улица, дом</div></div></div>
+                    <div class="contact-item"><div class="glyph">∞</div><div><div class="label">Каналы связи</div><div class="value">Telegram · VK · YouTube</div></div></div>
                 </div>
 
                 <div class="contact-form-wrap">
                     <h3>Оставить заявку</h3>
                     <form>
-                        <div class="form-field">
-                            <label>Имя</label>
-                            <input type="text" placeholder="Иван Иванов">
-                        </div>
-                        <div class="form-field">
-                            <label>Телефон или email</label>
-                            <input type="text" placeholder="+7 ... или mail@...">
-                        </div>
-                        <div class="form-field">
-                            <label>Сообщение</label>
-                            <textarea placeholder="Ваш вопрос..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
-                            Отправить заявку <span class="btn-arrow">→</span>
-                        </button>
+                        <div class="form-field"><label>Имя</label><input type="text" placeholder="Иван Иванов"></div>
+                        <div class="form-field"><label>Телефон или email</label><input type="text" placeholder="+7 ... или mail@..."></div>
+                        <div class="form-field"><label>Сообщение</label><textarea placeholder="Ваш вопрос..."></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Отправить заявку <span class="btn-arrow">→</span></button>
                     </form>
                 </div>
             </div>
@@ -1282,22 +1511,19 @@
                     <h4>Центр Подготовки</h4>
                     <p>Академическая онлайн-школа. Готовим к экзаменам на принципах науки, дисциплины и доверия.</p>
                 </div>
-
                 <div class="footer-col">
                     <h5>Навигация</h5>
                     <a href="#courses">Курсы</a>
+                    <a href="#materials">Материалы</a>
                     <a href="#teachers">Преподаватели</a>
                     <a href="#results">Результаты</a>
-                    <a href="#pricing">Цены</a>
                 </div>
-
                 <div class="footer-col">
                     <h5>Документы</h5>
                     <a href="#">Оферта</a>
                     <a href="#">Политика конфиденциальности</a>
                     <a href="#">Реквизиты</a>
                 </div>
-
                 <div class="footer-col">
                     <h5>Связь</h5>
                     <a href="#contacts">Контакты</a>
@@ -1312,6 +1538,44 @@
             </div>
         </div>
     </footer>
+
+    <!-- СКРИПТ ФИЛЬТРАЦИИ -->
+    <script>
+        (function () {
+            const state = { exam: 'all', subject: 'all' };
+            const cards = document.querySelectorAll('.topic-card');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+
+            function applyFilters() {
+                cards.forEach(function (card) {
+                    const subjectMatch = state.subject === 'all' || card.dataset.subject === state.subject;
+                    const exams = (card.dataset.exam || '').split(' ');
+                    const examMatch = state.exam === 'all' || exams.indexOf(state.exam) !== -1;
+                    if (subjectMatch && examMatch) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            }
+
+            filterButtons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    const group = btn.closest('.filter-tabs').dataset.filterGroup;
+                    const value = btn.dataset.filter;
+                    state[group] = value;
+
+                    // Снять active с кнопок только этой группы
+                    btn.closest('.filter-tabs').querySelectorAll('.filter-btn').forEach(function (b) {
+                        b.classList.remove('active');
+                    });
+                    btn.classList.add('active');
+
+                    applyFilters();
+                });
+            });
+        })();
+    </script>
 
 </body>
 </html>
