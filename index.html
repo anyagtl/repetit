@@ -4,77 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Центр Подготовки | Онлайн-школа</title>
-    <meta name="description" content="Центр Подготовки — онлайн-школа для подготовки к экзаменам. Наука, знания, доверие.">
+    <title>Центр Подготовки — Онлайн-школа</title>
+    <meta name="description" content="Центр Подготовки — академическая онлайн-школа. Наука, знание, доверие.">
     
-    <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* ===== ЦВЕТОВАЯ ПАЛИТРА ===== */
+        /* ===== ПАЛИТРА: сдержанная, академическая ===== */
         :root {
-            --navy-deep: #0B1B33;      /* Глубокий тёмно-синий — основа, доверие */
-            --navy: #12294D;            /* Синий — основной */
-            --navy-light: #1E3A66;     /* Светлее для карточек */
-            --gold: #C9A227;            /* Золото — достижения, знания */
-            --gold-light: #E5C158;     /* Светлое золото */
-            --cream: #F8F6F1;           /* Кремовый фон — читаемость */
+            --ink: #0A1628;              /* Глубокий чернильный — основа */
+            --ink-deep: #060E1C;         /* Ещё глубже — для контраста */
+            --ink-soft: #15243D;         /* Мягкий тёмно-синий */
+            --brass: #9C7B3E;            /* Бронза вместо золота — сдержанно */
+            --brass-muted: #7A5F2E;      /* Тёмная бронза */
+            --paper: #F4F1EA;            /* Тёплая бумага */
+            --paper-warm: #EDE9E0;       /* Чуть темнее — для секций */
+            --line: #D8D3C8;             /* Линия-волосок */
+            --line-dark: rgba(10, 22, 40, 0.12);
+            --text: #1A1F2B;
+            --text-soft: #4A5260;
+            --text-muted: #7A808C;
             --white: #FFFFFF;
-            --text-dark: #1A1A1A;
-            --text-muted: #5A6472;
-            --border: rgba(201, 162, 39, 0.2);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
-            background: var(--cream);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-weight: 400;
+            color: var(--text);
+            background: var(--paper);
+            line-height: 1.65;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* ===== ФОНОВЫЕ МАТЕМАТИЧЕСКИЕ СИМВОЛЫ ===== */
-        .math-bg {
+        /* ===== ТОНКАЯ ФОНОВАЯ СЕТКА (архитектурный чертёж) ===== */
+        .grid-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             pointer-events: none;
             z-index: 0;
-            overflow: hidden;
-            opacity: 0.035;
-            font-family: 'Playfair Display', serif;
-            color: var(--navy-deep);
-        }
-
-        .math-bg span {
-            position: absolute;
-            font-size: 8rem;
-            font-weight: 700;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .math-bg span:nth-child(1) { top: 5%;  left: 3%;  font-size: 10rem; animation-delay: 0s; }
-        .math-bg span:nth-child(2) { top: 25%; right: 5%; font-size: 7rem;  animation-delay: 2s; }
-        .math-bg span:nth-child(3) { top: 55%; left: 8%;  font-size: 9rem;  animation-delay: 4s; }
-        .math-bg span:nth-child(4) { top: 75%; right: 10%; font-size: 11rem; animation-delay: 1s; }
-        .math-bg span:nth-child(5) { top: 40%; left: 45%; font-size: 6rem;  animation-delay: 3s; }
-        .math-bg span:nth-child(6) { top: 88%; left: 30%; font-size: 8rem;  animation-delay: 5s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50%      { transform: translateY(-30px) rotate(8deg); }
+            background-image:
+                linear-gradient(to right, rgba(10, 22, 40, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(10, 22, 40, 0.025) 1px, transparent 1px);
+            background-size: 80px 80px;
         }
 
         /* ===== ШАПКА ===== */
@@ -82,719 +60,879 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(11, 27, 51, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+            background: var(--ink);
+            border-bottom: 1px solid rgba(156, 123, 62, 0.25);
         }
 
         .nav-container {
-            max-width: 1280px;
+            max-width: 1360px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1.25rem 2.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 2rem;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 1rem;
             text-decoration: none;
         }
 
         .logo-mark {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--navy-light), var(--navy-deep));
-            border: 2px solid var(--gold);
+            width: 52px;
+            height: 52px;
+            border: 1px solid var(--brass);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            color: var(--gold);
-            font-weight: 700;
-            box-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            color: var(--brass);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .logo-mark::before,
+        .logo-mark::after {
+            content: "";
+            position: absolute;
+            background: var(--brass);
+            opacity: 0.5;
+        }
+
+        .logo-mark::before {
+            width: 6px; height: 1px;
+            top: 4px; left: 4px;
+        }
+
+        .logo-mark::after {
+            width: 6px; height: 1px;
+            bottom: 4px; right: 4px;
         }
 
         .logo-text {
             display: flex;
             flex-direction: column;
-            line-height: 1.2;
+            line-height: 1.15;
         }
 
         .logo-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
             color: var(--white);
             letter-spacing: 0.5px;
         }
 
         .logo-sub {
-            font-size: 0.7rem;
-            color: var(--gold);
-            letter-spacing: 2px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--brass);
+            letter-spacing: 3px;
             text-transform: uppercase;
+            font-weight: 400;
+            margin-top: 2px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 0.5rem;
+            gap: 0;
+        }
+
+        nav li {
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        nav li:last-child {
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         nav a {
             display: block;
-            padding: 0.6rem 1.1rem;
-            color: rgba(255, 255, 255, 0.85);
+            padding: 1rem 1.5rem;
+            color: rgba(255, 255, 255, 0.72);
             text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 500;
-            border-radius: 6px;
-            transition: all 0.3s ease;
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
             position: relative;
         }
 
         nav a:hover {
-            color: var(--gold);
-            background: rgba(201, 162, 39, 0.08);
+            color: var(--brass);
+            background: rgba(156, 123, 62, 0.06);
         }
 
-        nav a::before {
-            content: "∫";
+        nav a::after {
+            content: "";
             position: absolute;
-            left: 0.3rem;
-            top: 50%;
-            transform: translateY(-50%) scale(0);
-            color: var(--gold);
-            transition: transform 0.3s ease;
-            font-family: 'Playfair Display', serif;
-            opacity: 0.7;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--brass);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
-        nav a:hover::before {
-            transform: translateY(-50%) scale(1);
+        nav a:hover::after {
+            width: 60%;
         }
 
-        /* ===== HERO СЕКЦИЯ ===== */
+        /* ===== HERO ===== */
         .hero {
             position: relative;
             z-index: 1;
-            padding: 7rem 2rem 6rem;
-            text-align: center;
-            background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 60%, var(--cream) 100%);
+            background: var(--ink);
             color: var(--white);
+            padding: 8rem 2.5rem 7rem;
             overflow: hidden;
+            border-bottom: 1px solid rgba(156, 123, 62, 0.2);
         }
 
-        .hero::before {
-            content: "∑";
+        /* Структурные линии на фоне hero */
+        .hero-grid {
             position: absolute;
-            top: 15%;
-            left: 5%;
-            font-size: 20rem;
-            font-family: 'Playfair Display', serif;
-            color: rgba(201, 162, 39, 0.05);
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(to right, rgba(156, 123, 62, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(156, 123, 62, 0.06) 1px, transparent 1px);
+            background-size: 120px 120px;
+        }
+
+        .hero-symbol {
+            position: absolute;
+            font-family: 'Cormorant Garamond', serif;
+            color: rgba(156, 123, 62, 0.08);
             line-height: 1;
             pointer-events: none;
+            font-weight: 400;
         }
 
-        .hero::after {
-            content: "π";
-            position: absolute;
-            bottom: 10%;
-            right: 8%;
-            font-size: 18rem;
-            font-family: 'Playfair Display', serif;
-            color: rgba(201, 162, 39, 0.05);
-            line-height: 1;
-            pointer-events: none;
-        }
+        .hero-symbol.s1 { top: 12%; left: 4%; font-size: 22rem; }
+        .hero-symbol.s2 { bottom: -8%; right: 6%; font-size: 26rem; }
+        .hero-symbol.s3 { top: 45%; right: 15%; font-size: 8rem; color: rgba(156, 123, 62, 0.05); }
 
-        .hero-content {
-            max-width: 900px;
+        .hero-inner {
+            max-width: 1360px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
         }
 
-        .hero-badge {
-            display: inline-flex;
+        .hero-meta {
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1.2rem;
-            border: 1px solid var(--gold);
-            border-radius: 50px;
-            color: var(--gold);
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--brass);
+            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-bottom: 2rem;
-            background: rgba(201, 162, 39, 0.08);
+        }
+
+        .hero-meta::before {
+            content: "";
+            width: 40px;
+            height: 1px;
+            background: var(--brass);
+            opacity: 0.6;
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 5vw, 4rem);
-            font-weight: 900;
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            max-width: 1000px;
+            margin-bottom: 2rem;
         }
 
-        .hero h1 .accent {
-            color: var(--gold);
+        .hero h1 em {
             font-style: italic;
+            color: var(--brass);
+            font-weight: 400;
         }
 
-        .hero p {
-            font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.75);
-            max-width: 650px;
-            margin: 0 auto 2.5rem;
+        .hero-lead {
+            max-width: 640px;
+            font-size: 1.05rem;
             font-weight: 300;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.75;
+            margin-bottom: 3rem;
+            border-left: 1px solid var(--brass);
+            padding-left: 1.5rem;
         }
 
-        .hero-buttons {
+        .hero-actions {
             display: flex;
-            gap: 1rem;
-            justify-content: center;
+            gap: 0;
             flex-wrap: wrap;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
-            padding: 0.95rem 2rem;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.95rem;
+            gap: 0.8rem;
+            padding: 1.1rem 2.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             text-decoration: none;
             cursor: pointer;
             border: none;
             transition: all 0.3s ease;
-            letter-spacing: 0.5px;
+            font-weight: 400;
+            border-radius: 0;
         }
 
         .btn-primary {
-            background: var(--gold);
-            color: var(--navy-deep);
-            box-shadow: 0 4px 20px rgba(201, 162, 39, 0.35);
+            background: var(--brass);
+            color: var(--ink);
+            border: 1px solid var(--brass);
         }
 
         .btn-primary:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(201, 162, 39, 0.5);
+            background: transparent;
+            color: var(--brass);
         }
 
         .btn-outline {
             background: transparent;
             color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
 
         .btn-outline:hover {
-            border-color: var(--gold);
-            color: var(--gold);
+            border-color: var(--brass);
+            color: var(--brass);
+        }
+
+        .btn-arrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        /* ===== ДЕВИЗ / МАНИФЕСТ ===== */
+        .manifesto {
+            position: relative;
+            z-index: 1;
+            background: var(--paper-warm);
+            padding: 5rem 2.5rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .manifesto-inner {
+            max-width: 1360px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .manifesto-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--brass-muted);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--brass);
+            display: inline-block;
+        }
+
+        .manifesto-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--ink-soft);
+            font-style: italic;
+            max-width: 900px;
+        }
+
+        .manifesto-text strong {
+            color: var(--ink);
+            font-weight: 600;
+            font-style: normal;
         }
 
         /* ===== СТАТИСТИКА ===== */
         .stats {
             position: relative;
             z-index: 1;
-            max-width: 1100px;
-            margin: -3rem auto 0;
-            padding: 0 2rem;
+            background: var(--paper);
+            border-bottom: 1px solid var(--line);
+            padding: 0 2.5rem;
+        }
+
+        .stats-inner {
+            max-width: 1360px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
         }
 
-        .stat-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(11, 27, 51, 0.08);
-            border: 1px solid var(--border);
-            transition: transform 0.3s ease;
+        .stat {
+            padding: 3rem 2rem;
+            border-right: 1px solid var(--line);
+            position: relative;
         }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
+        .stat:last-child { border-right: none; }
 
-        .stat-value {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--navy);
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 500;
+            color: var(--ink);
             line-height: 1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: -1px;
         }
 
-        .stat-value .symbol {
-            color: var(--gold);
-            font-size: 1.8rem;
-            margin-right: 0.2rem;
+        .stat-num sup {
+            font-size: 1.2rem;
+            color: var(--brass);
+            vertical-align: super;
+            margin-right: 0.15rem;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .stat-label {
-            font-size: 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
             color: var(--text-muted);
-            letter-spacing: 1px;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
         /* ===== СЕКЦИИ ===== */
-        section {
+        section.block {
             position: relative;
             z-index: 1;
-            padding: 5rem 2rem;
-            max-width: 1280px;
+            padding: 6rem 2.5rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        section.block.alt {
+            background: var(--paper-warm);
+        }
+
+        .block-inner {
+            max-width: 1360px;
             margin: 0 auto;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .section-tag {
-            display: inline-block;
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--gold);
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            font-weight: 700;
-            color: var(--navy-deep);
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.05rem;
-        }
-
-        .divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin: 1.5rem 0;
-            color: var(--gold);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-        }
-
-        .divider::before,
-        .divider::after {
-            content: "";
-            height: 1px;
-            width: 60px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
-
-        /* ===== ЗАГЛУШКИ КАРТОЧЕК ===== */
-        .grid {
+        .section-head {
             display: grid;
-            gap: 1.5rem;
+            grid-template-columns: auto 1fr;
+            gap: 3rem;
+            align-items: end;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--line-dark);
         }
 
-        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-
-        .placeholder-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 2rem;
-            border: 1px solid rgba(11, 27, 51, 0.06);
-            box-shadow: 0 4px 20px rgba(11, 27, 51, 0.04);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .placeholder-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 0;
-            background: var(--gold);
-            transition: height 0.3s ease;
-        }
-
-        .placeholder-card:hover::before {
-            height: 100%;
-        }
-
-        .placeholder-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(11, 27, 51, 0.1);
-        }
-
-        .placeholder-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, rgba(18, 41, 77, 0.06), rgba(201, 162, 39, 0.08));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            color: var(--gold);
-            margin-bottom: 1.2rem;
-            border: 1px solid var(--border);
-        }
-
-        .placeholder-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--navy-deep);
-            margin-bottom: 0.7rem;
-        }
-
-        .placeholder-card p {
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            line-height: 1.6;
-        }
-
-        .placeholder-line {
-            height: 8px;
-            background: linear-gradient(90deg, rgba(11, 27, 51, 0.06), rgba(11, 27, 51, 0.02));
-            border-radius: 4px;
-            margin-top: 1rem;
-        }
-
-        .placeholder-line.short { width: 60%; }
-
-        /* ===== ЦЕНЫ ===== */
-        .pricing-card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            border: 1px solid rgba(11, 27, 51, 0.06);
-            box-shadow: 0 4px 20px rgba(11, 27, 51, 0.04);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .pricing-card.featured {
-            border: 2px solid var(--gold);
-            box-shadow: 0 12px 50px rgba(201, 162, 39, 0.18);
-            transform: scale(1.03);
-        }
-
-        .pricing-card.featured::before {
-            content: "★ Рекомендуем";
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gold);
-            color: var(--navy-deep);
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            text-transform: uppercase;
-        }
-
-        .pricing-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--navy-deep);
-            margin-bottom: 0.5rem;
-        }
-
-        .pricing-price {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--navy);
-            margin: 1rem 0;
-            line-height: 1;
-        }
-
-        .pricing-price .currency {
-            font-size: 1.2rem;
-            color: var(--gold);
-            vertical-align: super;
-        }
-
-        .pricing-price .period {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+        .section-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
             font-weight: 400;
-            font-family: 'Inter', sans-serif;
+            color: var(--brass);
+            line-height: 1;
+            letter-spacing: -2px;
+            font-style: italic;
         }
 
-        .pricing-features {
-            list-style: none;
-            margin: 1.5rem 0;
-            text-align: left;
-        }
-
-        .pricing-features li {
-            padding: 0.5rem 0;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .section-title-wrap {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 0.6rem;
         }
 
-        .pricing-features li::before {
-            content: "✓";
-            color: var(--gold);
-            font-weight: 700;
+        .section-kicker {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 500;
+            color: var(--ink);
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+        }
+
+        .section-desc {
+            color: var(--text-soft);
+            max-width: 560px;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* ===== КАРТОЧКИ ===== */
+        .grid {
+            display: grid;
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+        .card {
+            background: var(--paper);
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+
+        section.block.alt .card { background: var(--paper-warm); }
+
+        .card:hover {
+            background: var(--white);
+        }
+
+        .card-mark {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--brass);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .card-mark::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--line-dark);
+        }
+
+        .card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.2px;
+        }
+
+        .card p {
+            color: var(--text-soft);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Заглушки строк */
+        .placeholder-line {
+            height: 1px;
+            background: var(--line-dark);
+            margin-top: 1.2rem;
+        }
+
+        .placeholder-line + .placeholder-line {
+            margin-top: 0.6rem;
+            width: 55%;
+        }
+
+        /* ===== ЦЕНЫ ===== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 1px solid var(--line-dark);
+        }
+
+        .price-card {
+            background: var(--paper);
+            padding: 3rem 2.2rem;
+            border-right: 1px solid var(--line-dark);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card:last-child { border-right: none; }
+
+        .price-card.featured {
+            background: var(--ink);
+            color: var(--white);
+        }
+
+        .price-card.featured .price-name,
+        .price-card.featured .price-value { color: var(--white); }
+
+        .price-card.featured .price-period,
+        .price-card.featured .price-features li { color: rgba(255, 255, 255, 0.65); }
+
+        .price-card.featured .price-currency { color: var(--brass); }
+
+        .price-card.featured .price-features li::before { color: var(--brass); }
+
+        .price-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--brass);
+            color: var(--ink);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.4rem 0.9rem;
+        }
+
+        .price-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .price-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 500;
+            color: var(--ink);
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .price-currency {
+            font-size: 1.5rem;
+            color: var(--brass);
+            vertical-align: super;
+            margin-right: 0.2rem;
+            font-weight: 500;
+        }
+
+        .price-period {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            letter-spacing: 0;
+            margin-top: 0.5rem;
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 2rem 0 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--line-dark);
+            flex: 1;
+        }
+
+        .price-card.featured .price-features {
+            border-top-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .price-features li {
+            padding: 0.6rem 0;
+            color: var(--text-soft);
+            font-size: 0.88rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            font-weight: 300;
+        }
+
+        .price-features li::before {
+            content: "—";
+            color: var(--brass);
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .price-card .btn {
+            width: 100%;
+            justify-content: center;
         }
 
         /* ===== КОНТАКТЫ ===== */
-        .contact-grid {
+        .contact-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: start;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 0;
+            border: 1px solid var(--line-dark);
         }
 
-        .contact-info {
-            background: var(--navy-deep);
+        .contact-side {
+            background: var(--ink);
             color: var(--white);
-            border-radius: 16px;
-            padding: 2.5rem;
+            padding: 3.5rem 2.5rem;
             position: relative;
             overflow: hidden;
         }
 
-        .contact-info::before {
-            content: "∞";
+        .contact-side::after {
+            content: "§";
             position: absolute;
-            bottom: -3rem;
+            bottom: -4rem;
             right: -1rem;
-            font-size: 14rem;
-            font-family: 'Playfair Display', serif;
-            color: rgba(201, 162, 39, 0.06);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16rem;
+            color: rgba(156, 123, 62, 0.06);
             line-height: 1;
         }
 
-        .contact-info h3 {
-            font-family: 'Playfair Display', serif;
+        .contact-side h3 {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            color: var(--white);
             position: relative;
             z-index: 1;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(156, 123, 62, 0.3);
         }
 
         .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            display: grid;
+            grid-template-columns: 40px 1fr;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
             position: relative;
             z-index: 1;
+            align-items: start;
         }
 
-        .contact-item .icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            background: rgba(201, 162, 39, 0.15);
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            flex-shrink: 0;
+        .contact-item .glyph {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--brass);
+            text-align: center;
+            padding-top: 0.1rem;
         }
 
         .contact-item .label {
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.5);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.45);
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.4rem;
         }
 
         .contact-item .value {
             color: var(--white);
             font-size: 0.95rem;
+            font-weight: 300;
         }
 
-        .contact-form {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 4px 20px rgba(11, 27, 51, 0.06);
+        .contact-form-wrap {
+            background: var(--paper);
+            padding: 3.5rem 2.5rem;
         }
 
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
+        .contact-form-wrap h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
             font-weight: 500;
+            color: var(--ink);
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--line-dark);
         }
 
-        .form-group input,
-        .form-group textarea {
+        .form-field {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-field label {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.7rem;
+        }
+
+        .form-field input,
+        .form-field textarea {
             width: 100%;
-            padding: 0.85rem 1rem;
-            border: 1px solid rgba(11, 27, 51, 0.12);
-            border-radius: 8px;
+            padding: 0.9rem 0;
+            border: none;
+            border-bottom: 1px solid var(--line-dark);
+            background: transparent;
             font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            transition: all 0.3s ease;
-            background: var(--cream);
+            font-size: 1rem;
+            color: var(--text);
+            transition: border-color 0.3s ease;
+            font-weight: 300;
+            border-radius: 0;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
+        .form-field input:focus,
+        .form-field textarea:focus {
             outline: none;
-            border-color: var(--gold);
-            background: var(--white);
-            box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.1);
+            border-bottom-color: var(--brass);
         }
 
-        .form-group textarea {
+        .form-field textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 90px;
         }
 
         /* ===== ПОДВАЛ ===== */
         footer {
-            background: var(--navy-deep);
-            color: rgba(255, 255, 255, 0.6);
-            padding: 3rem 2rem 2rem;
+            background: var(--ink-deep);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 4rem 2.5rem 2rem;
             position: relative;
             z-index: 1;
-            border-top: 1px solid var(--border);
         }
 
-        .footer-content {
-            max-width: 1280px;
+        .footer-inner {
+            max-width: 1360px;
             margin: 0 auto;
+        }
+
+        .footer-top {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(156, 123, 62, 0.15);
+        }
+
+        .footer-brand-mark {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--brass);
+            margin-bottom: 1rem;
+            line-height: 1;
         }
 
         .footer-brand h4 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             color: var(--white);
             font-size: 1.2rem;
+            font-weight: 500;
             margin-bottom: 0.8rem;
+            letter-spacing: 0.5px;
         }
 
         .footer-brand p {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             line-height: 1.7;
+            font-weight: 300;
+            max-width: 320px;
         }
 
         .footer-col h5 {
-            color: var(--gold);
-            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--brass);
+            font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 1.2rem;
+            font-weight: 400;
         }
 
         .footer-col a {
             display: block;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.5);
             text-decoration: none;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             padding: 0.35rem 0;
-            transition: color 0.3s ease;
+            transition: color 0.25s ease;
+            font-weight: 300;
         }
 
-        .footer-col a:hover {
-            color: var(--gold);
-        }
+        .footer-col a:hover { color: var(--brass); }
 
         .footer-bottom {
-            max-width: 1280px;
-            margin: 2rem auto 0;
-            text-align: center;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.4);
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        /* ===== АДАПТИВНОСТЬ ===== */
-        @media (max-width: 900px) {
-            .contact-grid { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr 1fr; }
-            nav ul { flex-wrap: wrap; justify-content: center; }
+        .footer-symbols {
+            color: var(--brass);
+            opacity: 0.7;
+            letter-spacing: 6px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
         }
 
-        @media (max-width: 640px) {
-            .nav-container { flex-direction: column; gap: 1rem; }
-            nav ul { gap: 0.2rem; }
-            nav a { padding: 0.5rem 0.7rem; font-size: 0.85rem; }
-            .hero { padding: 5rem 1.5rem 4rem; }
-            section { padding: 3.5rem 1.5rem; }
-            .stats { grid-template-columns: 1fr 1fr; margin-top: -2rem; }
-            .footer-content { grid-template-columns: 1fr; }
-            .pricing-card.featured { transform: none; }
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 1024px) {
+            .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .price-card { border-right: none; border-bottom: 1px solid var(--line-dark); }
+            .price-card:last-child { border-bottom: none; }
+            .contact-layout { grid-template-columns: 1fr; }
+            .manifesto-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+            .footer-top { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 720px) {
+            .nav-container { flex-direction: column; gap: 1rem; padding: 1rem 1.25rem; }
+            nav ul { flex-wrap: wrap; justify-content: center; border: 1px solid rgba(255,255,255,0.08); }
+            nav li { border: none; border-right: 1px solid rgba(255,255,255,0.08); }
+            nav a { padding: 0.7rem 0.9rem; font-size: 0.68rem; letter-spacing: 1.5px; }
+            .hero { padding: 5rem 1.25rem 4rem; }
+            .hero-symbol.s1, .hero-symbol.s2 { display: none; }
+            section.block { padding: 4rem 1.25rem; }
+            .section-head { grid-template-columns: 1fr; gap: 1rem; align-items: start; }
+            .section-num { font-size: 3rem; }
+            .stats-inner { grid-template-columns: 1fr 1fr; }
+            .stat { padding: 2rem 1.25rem; border-bottom: 1px solid var(--line); }
+            .stat:nth-child(2n) { border-right: none; }
+            .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .contact-side, .contact-form-wrap { padding: 2.5rem 1.5rem; }
+            .footer-top { grid-template-columns: 1fr; gap: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ФОНОВЫЕ МАТЕМАТИЧЕСКИЕ СИМВОЛЫ -->
-    <div class="math-bg" aria-hidden="true">
-        <span>∑</span>
-        <span>∫</span>
-        <span>π</span>
-        <span>√</span>
-        <span>∞</span>
-        <span>Δ</span>
-    </div>
+    <div class="grid-overlay" aria-hidden="true"></div>
 
     <!-- ШАПКА -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-mark">∑</div>
+                <div class="logo-mark">∴</div>
                 <div class="logo-text">
                     <span class="logo-title">Центр Подготовки</span>
-                    <span class="logo-sub">On-line school</span>
+                    <span class="logo-sub">Scientia · Veritas · Fides</span>
                 </div>
             </a>
 
@@ -802,7 +940,7 @@
                 <ul>
                     <li><a href="#courses">Курсы</a></li>
                     <li><a href="#teachers">Преподаватели</a></li>
-                    <li><a href="#results">Результаты и отзывы</a></li>
+                    <li><a href="#results">Результаты</a></li>
                     <li><a href="#pricing">Цены</a></li>
                     <li><a href="#contacts">Контакты</a></li>
                 </ul>
@@ -812,311 +950,366 @@
 
     <!-- HERO -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">∫ Наука · Знания · Доверие</div>
-            <h1>Онлайн-школа, которой <span class="accent">доверяют</span> будущее</h1>
-            <p>Здесь появится главный слоган и описание Центра Подготовки. Место для краткого, но убедительного сообщения о миссии школы.</p>
-            <div class="hero-buttons">
-                <a href="#courses" class="btn btn-primary">Выбрать курс →</a>
-                <a href="#contacts" class="btn btn-outline">Записаться на пробное</a>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <span class="hero-symbol s1" aria-hidden="true">∮</span>
+        <span class="hero-symbol s2" aria-hidden="true">Ω</span>
+        <span class="hero-symbol s3" aria-hidden="true">∴</span>
+
+        <div class="hero-inner">
+            <div class="hero-meta">Основано на принципах науки</div>
+
+            <h1>
+                Академическая подготовка, <em>основанная на доказательствах</em>
+            </h1>
+
+            <p class="hero-lead">
+                Здесь появится главный тезис Центра Подготовки — сдержанный, точный, обращённый к разуму и вдумчивости. Место для формулировки образовательной философии.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#courses" class="btn btn-primary">
+                    Программы <span class="btn-arrow">→</span>
+                </a>
+                <a href="#contacts" class="btn btn-outline">
+                    Записаться на консультацию
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- МАНИФЕСТ -->
+    <section class="manifesto">
+        <div class="manifesto-inner">
+            <div class="manifesto-label">Манифест</div>
+            <div class="manifesto-text">
+                Здесь будет краткое изложение принципов школы. <strong>Знание требует усилия, дисциплины и честности</strong> — и мы верим, что подготовка к экзамену есть не просто натаскивание, а способ научиться думать.
             </div>
         </div>
     </section>
 
     <!-- СТАТИСТИКА -->
     <div class="stats">
-        <div class="stat-card">
-            <div class="stat-value"><span class="symbol">∑</span>00</div>
-            <div class="stat-label">Учеников</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value"><span class="symbol">π</span>00</div>
-            <div class="stat-label">Средний балл</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value"><span class="symbol">∞</span>00</div>
-            <div class="stat-label">Лет опыта</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value"><span class="symbol">√</span>00%</div>
-            <div class="stat-label">Довольны</div>
+        <div class="stats-inner">
+            <div class="stat">
+                <div class="stat-num"><sup>∑</sup>00</div>
+                <div class="stat-label">Учеников</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num"><sup>π</sup>00</div>
+                <div class="stat-label">Средний балл</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num"><sup>∞</sup>00</div>
+                <div class="stat-label">Лет опыта</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num"><sup>√</sup>00%</div>
+                <div class="stat-label">Довольны</div>
+            </div>
         </div>
     </div>
 
     <!-- КУРСЫ -->
-    <section id="courses">
-        <div class="section-header">
-            <span class="section-tag">01 — Направления</span>
-            <h2>Наши курсы</h2>
-            <div class="divider">∫</div>
-            <p>Здесь будет описание курсов Центра Подготовки.</p>
-        </div>
+    <section class="block" id="courses">
+        <div class="block-inner">
+            <div class="section-head">
+                <div class="section-num">I</div>
+                <div class="section-title-wrap">
+                    <span class="section-kicker">Раздел первый · Направления</span>
+                    <h2 class="section-title">Программы подготовки</h2>
+                    <p class="section-desc">Структура курсов, академическая нагрузка и дисциплины Центра Подготовки.</p>
+                </div>
+            </div>
 
-        <div class="grid grid-3">
-            <div class="placeholder-card">
-                <div class="placeholder-icon">∑</div>
-                <h3>Математика</h3>
-                <p>Описание курса появится здесь позже.</p>
-                <div class="placeholder-line"></div>
-                <div class="placeholder-line short"></div>
-            </div>
-            <div class="placeholder-card">
-                <div class="placeholder-icon">π</div>
-                <h3>Физика</h3>
-                <p>Описание курса появится здесь позже.</p>
-                <div class="placeholder-line"></div>
-                <div class="placeholder-line short"></div>
-            </div>
-            <div class="placeholder-card">
-                <div class="placeholder-icon">√</div>
-                <h3>Русский язык</h3>
-                <p>Описание курса появится здесь позже.</p>
-                <div class="placeholder-line"></div>
-                <div class="placeholder-line short"></div>
-            </div>
-            <div class="placeholder-card">
-                <div class="placeholder-icon">Δ</div>
-                <h3>Информатика</h3>
-                <p>Описание курса появится здесь позже.</p>
-                <div class="placeholder-line"></div>
-                <div class="placeholder-line short"></div>
-            </div>
-            <div class="placeholder-card">
-                <div class="placeholder-icon">∞</div>
-                <h3>Химия</h3>
-                <p>Описание курса появится здесь позже.</p>
-                <div class="placeholder-line"></div>
-                <div class="placeholder-line short"></div>
-            </div>
-            <div class="placeholder-card">
-                <div class="placeholder-icon">λ</div>
-                <h3>Биология</h3>
-                <p>Описание курса появится здесь позже.</p>
-                <div class="placeholder-line"></div>
-                <div class="placeholder-line short"></div>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-mark">∑</div>
+                    <h3>Математика</h3>
+                    <p>Описание курса появится здесь позже.</p>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line"></div>
+                </div>
+                <div class="card">
+                    <div class="card-mark">π</div>
+                    <h3>Физика</h3>
+                    <p>Описание курса появится здесь позже.</p>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line"></div>
+                </div>
+                <div class="card">
+                    <div class="card-mark">∵</div>
+                    <h3>Русский язык</h3>
+                    <p>Описание курса появится здесь позже.</p>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line"></div>
+                </div>
+                <div class="card">
+                    <div class="card-mark">∴</div>
+                    <h3>Информатика</h3>
+                    <p>Описание курса появится здесь позже.</p>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line"></div>
+                </div>
+                <div class="card">
+                    <div class="card-mark">λ</div>
+                    <h3>Химия</h3>
+                    <p>Описание курса появится здесь позже.</p>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line"></div>
+                </div>
+                <div class="card">
+                    <div class="card-mark">Δ</div>
+                    <h3>Биология</h3>
+                    <p>Описание курса появится здесь позже.</p>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line"></div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ПРЕПОДАВАТЕЛИ -->
-    <section id="teachers">
-        <div class="section-header">
-            <span class="section-tag">02 — Команда</span>
-            <h2>Наши преподаватели</h2>
-            <div class="divider">π</div>
-            <p>Здесь будет информация о преподавателях Центра Подготовки.</p>
-        </div>
+    <section class="block alt" id="teachers">
+        <div class="block-inner">
+            <div class="section-head">
+                <div class="section-num">II</div>
+                <div class="section-title-wrap">
+                    <span class="section-kicker">Раздел второй · Состав</span>
+                    <h2 class="section-title">Наши преподаватели</h2>
+                    <p class="section-desc">Академический состав, квалификация и научные интересы преподавателей.</p>
+                </div>
+            </div>
 
-        <div class="grid grid-4">
-            <div class="placeholder-card">
-                <div class="placeholder-icon">👤</div>
-                <h3>Имя Фамилия</h3>
-                <p>Краткое описание преподавателя.</p>
-                <div class="placeholder-line short"></div>
-            </div>
-            <div class="placeholder-card">
-                <div class="placeholder-icon">👤</div>
-                <h3>Имя Фамилия</h3>
-                <p>Краткое описание преподавателя.</p>
-                <div class="placeholder-line short"></div>
-            </div>
-            <div class="placeholder-card">
-                <div class="placeholder-icon">👤</div>
-                <h3>Имя Фамилия</h3>
-                <p>Краткое описание преподавателя.</p>
-                <div class="placeholder-line short"></div>
-            </div>
-            <div class="placeholder-card">
-                <div class="placeholder-icon">👤</div>
-                <h3>Имя Фамилия</h3>
-                <p>Краткое описание преподавателя.</p>
-                <div class="placeholder-line short"></div>
+            <div class="grid grid-4">
+                <div class="card">
+                    <div class="card-mark">I</div>
+                    <h3>Имя Фамилия</h3>
+                    <p>Краткое описание преподавателя.</p>
+                    <div class="placeholder-line"></div>
+                </div>
+                <div class="card">
+                    <div class="card-mark">II</div>
+                    <h3>Имя Фамилия</h3>
+                    <p>Краткое описание преподавателя.</p>
+                    <div class="placeholder-line"></div>
+                </div>
+                <div class="card">
+                    <div class="card-mark">III</div>
+                    <h3>Имя Фамилия</h3>
+                    <p>Краткое описание преподавателя.</p>
+                    <div class="placeholder-line"></div>
+                </div>
+                <div class="card">
+                    <div class="card-mark">IV</div>
+                    <h3>Имя Фамилия</h3>
+                    <p>Краткое описание преподавателя.</p>
+                    <div class="placeholder-line"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- РЕЗУЛЬТАТЫ И ОТЗЫВЫ -->
-    <section id="results">
-        <div class="section-header">
-            <span class="section-tag">03 — Достижения</span>
-            <h2>Наши результаты и отзывы</h2>
-            <div class="divider">√</div>
-            <p>Здесь появятся цифры, отзывы и истории успеха учеников.</p>
-        </div>
+    <!-- РЕЗУЛЬТАТЫ -->
+    <section class="block" id="results">
+        <div class="block-inner">
+            <div class="section-head">
+                <div class="section-num">III</div>
+                <div class="section-title-wrap">
+                    <span class="section-kicker">Раздел третий · Свидетельства</span>
+                    <h2 class="section-title">Результаты и отзывы</h2>
+                    <p class="section-desc">Объективные данные о результатах учеников и свидетельства родителей.</p>
+                </div>
+            </div>
 
-        <div class="grid grid-3">
-            <div class="placeholder-card">
-                <div class="placeholder-icon">★</div>
-                <h3>Отзыв ученика</h3>
-                <p>Текст отзыва появится здесь.</p>
-                <div class="placeholder-line"></div>
-                <div class="placeholder-line short"></div>
-            </div>
-            <div class="placeholder-card">
-                <div class="placeholder-icon">★</div>
-                <h3>Отзыв родителя</h3>
-                <p>Текст отзыва появится здесь.</p>
-                <div class="placeholder-line"></div>
-                <div class="placeholder-line short"></div>
-            </div>
-            <div class="placeholder-card">
-                <div class="placeholder-icon">★</div>
-                <h3>История успеха</h3>
-                <p>Текст истории появится здесь.</p>
-                <div class="placeholder-line"></div>
-                <div class="placeholder-line short"></div>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-mark">§1</div>
+                    <h3>Отзыв ученика</h3>
+                    <p>Текст отзыва появится здесь.</p>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line"></div>
+                </div>
+                <div class="card">
+                    <div class="card-mark">§2</div>
+                    <h3>Отзыв родителя</h3>
+                    <p>Текст отзыва появится здесь.</p>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line"></div>
+                </div>
+                <div class="card">
+                    <div class="card-mark">§3</div>
+                    <h3>История успеха</h3>
+                    <p>Текст истории появится здесь.</p>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line"></div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ЦЕНЫ -->
-    <section id="pricing">
-        <div class="section-header">
-            <span class="section-tag">04 — Стоимость</span>
-            <h2>Цены</h2>
-            <div class="divider">∞</div>
-            <p>Здесь будут тарифы и стоимость обучения.</p>
-        </div>
-
-        <div class="grid grid-3">
-            <div class="pricing-card">
-                <div class="pricing-name">Базовый</div>
-                <div class="pricing-price"><span class="currency">₽</span>0<span class="period"> / мес</span></div>
-                <ul class="pricing-features">
-                    <li>Пункт 1</li>
-                    <li>Пункт 2</li>
-                    <li>Пункт 3</li>
-                </ul>
-                <a href="#contacts" class="btn btn-primary" style="width:100%; justify-content:center;">Выбрать</a>
+    <section class="block alt" id="pricing">
+        <div class="block-inner">
+            <div class="section-head">
+                <div class="section-num">IV</div>
+                <div class="section-title-wrap">
+                    <span class="section-kicker">Раздел четвёртый · Условия</span>
+                    <h2 class="section-title">Стоимость обучения</h2>
+                    <p class="section-desc">Тарифные планы и условия сотрудничества.</p>
+                </div>
             </div>
 
-            <div class="pricing-card featured">
-                <div class="pricing-name">Оптимальный</div>
-                <div class="pricing-price"><span class="currency">₽</span>0<span class="period"> / мес</span></div>
-                <ul class="pricing-features">
-                    <li>Пункт 1</li>
-                    <li>Пункт 2</li>
-                    <li>Пункт 3</li>
-                    <li>Пункт 4</li>
-                </ul>
-                <a href="#contacts" class="btn btn-primary" style="width:100%; justify-content:center;">Выбрать</a>
-            </div>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <div class="price-name">Базовый</div>
+                    <div class="price-value"><span class="price-currency">₽</span>0<span class="price-period">в месяц</span></div>
+                    <ul class="price-features">
+                        <li>Пункт тарифа</li>
+                        <li>Пункт тарифа</li>
+                        <li>Пункт тарифа</li>
+                    </ul>
+                    <a href="#contacts" class="btn btn-outline" style="color:var(--ink); border-color:var(--line-dark);">Выбрать план</a>
+                </div>
 
-            <div class="pricing-card">
-                <div class="pricing-name">Премиум</div>
-                <div class="pricing-price"><span class="currency">₽</span>0<span class="period"> / мес</span></div>
-                <ul class="pricing-features">
-                    <li>Пункт 1</li>
-                    <li>Пункт 2</li>
-                    <li>Пункт 3</li>
-                    <li>Пункт 4</li>
-                    <li>Пункт 5</li>
-                </ul>
-                <a href="#contacts" class="btn btn-primary" style="width:100%; justify-content:center;">Выбрать</a>
+                <div class="price-card featured">
+                    <div class="price-badge">Рекомендовано</div>
+                    <div class="price-name">Оптимальный</div>
+                    <div class="price-value"><span class="price-currency">₽</span>0<span class="price-period">в месяц</span></div>
+                    <ul class="price-features">
+                        <li>Пункт тарифа</li>
+                        <li>Пункт тарифа</li>
+                        <li>Пункт тарифа</li>
+                        <li>Пункт тарифа</li>
+                    </ul>
+                    <a href="#contacts" class="btn btn-primary" style="width:100%; justify-content:center;">Выбрать план</a>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-name">Премиум</div>
+                    <div class="price-value"><span class="price-currency">₽</span>0<span class="price-period">в месяц</span></div>
+                    <ul class="price-features">
+                        <li>Пункт тарифа</li>
+                        <li>Пункт тарифа</li>
+                        <li>Пункт тарифа</li>
+                        <li>Пункт тарифа</li>
+                        <li>Пункт тарифа</li>
+                    </ul>
+                    <a href="#contacts" class="btn btn-outline" style="color:var(--ink); border-color:var(--line-dark);">Выбрать план</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- КОНТАКТЫ -->
-    <section id="contacts">
-        <div class="section-header">
-            <span class="section-tag">05 — Связь</span>
-            <h2>Контакты</h2>
-            <div class="divider">Δ</div>
-            <p>Свяжитесь с нами удобным способом.</p>
-        </div>
-
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Связаться с нами</h3>
-
-                <div class="contact-item">
-                    <div class="icon">☎</div>
-                    <div>
-                        <div class="label">Телефон</div>
-                        <div class="value">+7 (___) ___-__-__</div>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="icon">@</div>
-                    <div>
-                        <div class="label">Email</div>
-                        <div class="value">info@example.com</div>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="icon">⌘</div>
-                    <div>
-                        <div class="label">Адрес</div>
-                        <div class="value">Город, улица, дом</div>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="icon">∞</div>
-                    <div>
-                        <div class="label">Соцсети</div>
-                        <div class="value">Telegram · VK · YouTube</div>
-                    </div>
+    <section class="block" id="contacts">
+        <div class="block-inner">
+            <div class="section-head">
+                <div class="section-num">V</div>
+                <div class="section-title-wrap">
+                    <span class="section-kicker">Раздел пятый · Связь</span>
+                    <h2 class="section-title">Контакты</h2>
+                    <p class="section-desc">Способы связаться с приёмной комиссией Центра.</p>
                 </div>
             </div>
 
-            <div class="contact-form">
-                <h3 style="font-family:'Playfair Display',serif; color:var(--navy-deep); margin-bottom:1.5rem;">Оставить заявку</h3>
-                <form>
-                    <div class="form-group">
-                        <label>Ваше имя</label>
-                        <input type="text" placeholder="Иван Иванов">
+            <div class="contact-layout">
+                <div class="contact-side">
+                    <h3>Приёмная комиссия</h3>
+
+                    <div class="contact-item">
+                        <div class="glyph">☎</div>
+                        <div>
+                            <div class="label">Телефон</div>
+                            <div class="value">+7 (___) ___-__-__</div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Телефон или Email</label>
-                        <input type="text" placeholder="+7 ... или mail@...">
+
+                    <div class="contact-item">
+                        <div class="glyph">@</div>
+                        <div>
+                            <div class="label">Электронная почта</div>
+                            <div class="value">info@example.com</div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Сообщение</label>
-                        <textarea placeholder="Ваш вопрос..."></textarea>
+
+                    <div class="contact-item">
+                        <div class="glyph">⌂</div>
+                        <div>
+                            <div class="label">Адрес</div>
+                            <div class="value">Город, улица, дом</div>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Отправить заявку</button>
-                </form>
+
+                    <div class="contact-item">
+                        <div class="glyph">∞</div>
+                        <div>
+                            <div class="label">Каналы связи</div>
+                            <div class="value">Telegram · VK · YouTube</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrap">
+                    <h3>Оставить заявку</h3>
+                    <form>
+                        <div class="form-field">
+                            <label>Имя</label>
+                            <input type="text" placeholder="Иван Иванов">
+                        </div>
+                        <div class="form-field">
+                            <label>Телефон или email</label>
+                            <input type="text" placeholder="+7 ... или mail@...">
+                        </div>
+                        <div class="form-field">
+                            <label>Сообщение</label>
+                            <textarea placeholder="Ваш вопрос..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+                            Отправить заявку <span class="btn-arrow">→</span>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ПОДВАЛ -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h4>Центр Подготовки</h4>
-                <p>Онлайн-школа для тех, кто ценит знания, науку и доверие. Готовим к экзаменам и олимпиадам.</p>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-brand-mark">∴</div>
+                    <h4>Центр Подготовки</h4>
+                    <p>Академическая онлайн-школа. Готовим к экзаменам на принципах науки, дисциплины и доверия.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Навигация</h5>
+                    <a href="#courses">Курсы</a>
+                    <a href="#teachers">Преподаватели</a>
+                    <a href="#results">Результаты</a>
+                    <a href="#pricing">Цены</a>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Документы</h5>
+                    <a href="#">Оферта</a>
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Реквизиты</a>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Связь</h5>
+                    <a href="#contacts">Контакты</a>
+                    <a href="#">Telegram</a>
+                    <a href="#">VK</a>
+                </div>
             </div>
 
-            <div class="footer-col">
-                <h5>Навигация</h5>
-                <a href="#courses">Курсы</a>
-                <a href="#teachers">Преподаватели</a>
-                <a href="#results">Результаты</a>
-                <a href="#pricing">Цены</a>
+            <div class="footer-bottom">
+                <span>© 2026 Центр Подготовки</span>
+                <span class="footer-symbols">∮ ∑ ∴ Ω Δ ∞</span>
             </div>
-
-            <div class="footer-col">
-                <h5>Помощь</h5>
-                <a href="#contacts">Контакты</a>
-                <a href="#">FAQ</a>
-                <a href="#">Документы</a>
-            </div>
-
-            <div class="footer-col">
-                <h5>Мы в сети</h5>
-                <a href="#">Telegram</a>
-                <a href="#">VK</a>
-                <a href="#">YouTube</a>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            © 2026 Центр Подготовки · ∑ ∫ π √ ∞ Δ
         </div>
     </footer>
 
