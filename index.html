@@ -3,434 +3,1122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Репетитор Ксения - Подготовка к ОГЭ и ЕГЭ</title>
+    
+    <title>Центр Подготовки | Онлайн-школа</title>
+    <meta name="description" content="Центр Подготовки — онлайн-школа для подготовки к экзаменам. Наука, знания, доверие.">
+    
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <style>
-        /* Основные стили */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7fc;
-            color: #333;
+        /* ===== ЦВЕТОВАЯ ПАЛИТРА ===== */
+        :root {
+            --navy-deep: #0B1B33;      /* Глубокий тёмно-синий — основа, доверие */
+            --navy: #12294D;            /* Синий — основной */
+            --navy-light: #1E3A66;     /* Светлее для карточек */
+            --gold: #C9A227;            /* Золото — достижения, знания */
+            --gold-light: #E5C158;     /* Светлое золото */
+            --cream: #F8F6F1;           /* Кремовый фон — читаемость */
+            --white: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --text-muted: #5A6472;
+            --border: rgba(201, 162, 39, 0.2);
         }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== ФОНОВЫЕ МАТЕМАТИЧЕСКИЕ СИМВОЛЫ ===== */
+        .math-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+            opacity: 0.035;
+            font-family: 'Playfair Display', serif;
+            color: var(--navy-deep);
+        }
+
+        .math-bg span {
+            position: absolute;
+            font-size: 8rem;
+            font-weight: 700;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .math-bg span:nth-child(1) { top: 5%;  left: 3%;  font-size: 10rem; animation-delay: 0s; }
+        .math-bg span:nth-child(2) { top: 25%; right: 5%; font-size: 7rem;  animation-delay: 2s; }
+        .math-bg span:nth-child(3) { top: 55%; left: 8%;  font-size: 9rem;  animation-delay: 4s; }
+        .math-bg span:nth-child(4) { top: 75%; right: 10%; font-size: 11rem; animation-delay: 1s; }
+        .math-bg span:nth-child(5) { top: 40%; left: 45%; font-size: 6rem;  animation-delay: 3s; }
+        .math-bg span:nth-child(6) { top: 88%; left: 30%; font-size: 8rem;  animation-delay: 5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50%      { transform: translateY(-30px) rotate(8deg); }
+        }
+
+        /* ===== ШАПКА ===== */
         header {
-            background-color: #3b5b96;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            font-size: 25px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 27, 51, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
         }
 
-        header h1 {
-            font-size: 30px;
-            margin: 0;
-        }
-
-        nav {
-            background-color: #2c4871;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        section {
-            padding: 40px 20px;
-            max-width: 1200px;
+        .nav-container {
+            max-width: 1280px;
             margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        h2 {
-            color: #3b5b96;
-            font-size: 28px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .courses {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background-color: #fff;
-            border-radius: 40px;
-            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .service-card h3 {
-            color: #2c4871;
-            font-size: 23px;
-            margin-bottom: 30px;
-            margin-top: 30px;
-        }
-
-        .service-card p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 30px;
-            margin-top: 30px;
-        }
-
-
-        .cta-button {
-            background-color: #3b5b96;
-            color: #fff;
-            padding: 12px 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
             text-decoration: none;
-            margin-bottom: 40px;
-            margin-top: 30px;
         }
 
-        .cta-button:hover {
-            background-color: #2c4871;
-            margin-bottom: 40px;
-            margin-top: 30px;
-        }
-        
-        footer {
-            background-color: #3b5b96;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 16px;
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>Подготовка к ОГЭ, ЕГЭ и другим экзаменам</h1>
-    <p>Репетитор находит индивидуальный подход к каждому ученику</p>
-</header>
-
-<nav>
-    <a href="#services">Выберите актуальную тему</a>
-    <a href="#courses">Курсы</a>
-    <a href="#repetit">О репетиторе</a>
-    <a href="#contact">Отзывы</a>
-    <a href="#contact">Контакты</a>
-</nav>
-
-<section id="services">
-    <h2>Наши Услуги</h2>
-    <div class="services">
-        <div class="service-card">
-            <h3>Начальная школа (1-4 классы)</h3>
-            <p>Помощь с домашним заданием, подготовка к ВПР и другим экзаменам.</p>
-            <a href="#contact" class="cta-button">Подробнее</a>
-        </div>
-        <div class="service-card">
-            <h3>Средняя школа (5-8 классы)</h3>
-            <p>Помощь со школьной программой, подготовка к переводным экзаменам и ВПР</p>
-            <a href="#contact" class="cta-button">Подробнее</a>
-        </div>
-        <div class="service-card">
-            <h3>Старшая школа (9-11 классы)</h3>
-            <p>Подготовка к ОГЭ и ЕГЭ, а также помощь со школьной программой</p>
-            <a href="#contact" class="cta-button">Подробнее</a>
-        </div>
-    </div>
-</section>
-
-    <header>
-     <a href="#contact" class="cta-button">Нажмите, чтобы записаться на первый бесплатный урок</a>
-</header>
-    
-<section id="courses">
-    <h2>Курсы</h2>
-    <div class="courses">
-        <div class="service-card">
-            <h3>Марафон подготовки к ЕГЭ</h3>
-            <p>Индивидуальные и групповые занятия, видео, задания и многое другое</p>
-            <a href="#contact" class="cta-button">Подробнее</a>
-        </div>
-        <div class="service-card">
-            <h3>Марафон подготовки к ОГЭ</h3>
-            <p>Индивидуальные и групповые занятия от специалистов, видео, задания и многое другое</p>
-            <a href="#contact" class="cta-button">Подробнее</a>
-        </div>
-        <div class="service-card">
-            <h3>Вся теория в pdf файле для ОГЭ/ЕГЭ</h3>
-            <p>В файле собраны все формулы и вся теория для успешной сдачи</p>
-            <a href="#contact" class="cta-button">Подробнее</a>
-        </div>
-    </div>
-</section>
-    
-<div style="display: flex; align-items: center; justify-content: space-between; padding: 10px; max-width: 1200px; margin: auto;">
-  <!-- Левая часть (информация обо мне) -->
-  <div style="flex: 1; padding-right: 10px;">
-    <h2>О репетиторе</h2>
-    <p>Здравствуйте! Меня зовут Ксения Липская. Я - репетитор с российским и международным образованием </p>
-      </p>  с опытом преподавания более 3-х лет.</p>
-   <p>За 3 года своей практики, я подоготовила более 37 студентов:<p>
-     <p>  - 14 учеников сдали ЕГЭ (2023-2024) на 87+ баллов<p>
-     <p>  - 12 учеников сдали ОГЭ (2023-2024) на 5 
-    <p>   - 5 учеников успешно написали входные экзамены в ведущие школы Москвы (179, 1535, Л2Ш и Технолицей)<p>
-     <p>  - Остальные 6 учеников (2022-2024) сдали ОГЭ на 4 балла, и ЕГЭ на 75+ баллов<p>
-     <p> Пробный урок провожу всегда бесплатно. Преподаю на русском и аглийских языках. <p>
-    <p> По всем вопросам буду рада пообщаться в ТГ @xek_ti или по телефону +7 (916) 347-42-70<p>
-  </div>
- <!-- Правая часть (фото) -->
-  <div style="flex-shrink: 0;">
-    <img src="your-photo.jpg" alt="Ваше фото" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%;">
-  </div>
-</div>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отзывы учеников</title>
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy-light), var(--navy-deep));
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
         }
 
-        .reviews-section {
-            padding: 20px 20px;
-            text-align: center;
-            background-color: #fff;
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
         }
-        .reviews-section h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
-            color: #333;
+
+        .logo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            color: var(--gold);
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        .reviews-container {
+        nav ul {
             display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        nav a {
+            display: block;
+            padding: 0.6rem 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+            background: rgba(201, 162, 39, 0.08);
+        }
+
+        nav a::before {
+            content: "∫";
+            position: absolute;
+            left: 0.3rem;
+            top: 50%;
+            transform: translateY(-50%) scale(0);
+            color: var(--gold);
+            transition: transform 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            opacity: 0.7;
+        }
+
+        nav a:hover::before {
+            transform: translateY(-50%) scale(1);
+        }
+
+        /* ===== HERO СЕКЦИЯ ===== */
+        .hero {
+            position: relative;
+            z-index: 1;
+            padding: 7rem 2rem 6rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 60%, var(--cream) 100%);
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "∑";
+            position: absolute;
+            top: 15%;
+            left: 5%;
+            font-size: 20rem;
+            font-family: 'Playfair Display', serif;
+            color: rgba(201, 162, 39, 0.05);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: "π";
+            position: absolute;
+            bottom: 10%;
+            right: 8%;
+            font-size: 18rem;
+            font-family: 'Playfair Display', serif;
+            color: rgba(201, 162, 39, 0.05);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            border: 1px solid var(--gold);
+            border-radius: 50px;
+            color: var(--gold);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            background: rgba(201, 162, 39, 0.08);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .accent {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
             justify-content: center;
-            gap: 10px;
             flex-wrap: wrap;
         }
 
-        .review-card {
-            background-color: #fff;
-            border-radius: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 350px;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.95rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy-deep);
+            box-shadow: 0 4px 20px rgba(201, 162, 39, 0.35);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(201, 162, 39, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* ===== СТАТИСТИКА ===== */
+        .stats {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: -3rem auto 0;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(11, 27, 51, 0.08);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value .symbol {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-right: 0.2rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ===== СЕКЦИИ ===== */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 5rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--gold);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--navy-deep);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            height: 1px;
+            width: 60px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        /* ===== ЗАГЛУШКИ КАРТОЧЕК ===== */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+        .placeholder-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(11, 27, 51, 0.06);
+            box-shadow: 0 4px 20px rgba(11, 27, 51, 0.04);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .placeholder-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--gold);
+            transition: height 0.3s ease;
+        }
+
+        .placeholder-card:hover::before {
+            height: 100%;
+        }
+
+        .placeholder-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(11, 27, 51, 0.1);
+        }
+
+        .placeholder-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(18, 41, 77, 0.06), rgba(201, 162, 39, 0.08));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            margin-bottom: 1.2rem;
+            border: 1px solid var(--border);
+        }
+
+        .placeholder-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            margin-bottom: 0.7rem;
+        }
+
+        .placeholder-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .placeholder-line {
+            height: 8px;
+            background: linear-gradient(90deg, rgba(11, 27, 51, 0.06), rgba(11, 27, 51, 0.02));
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        .placeholder-line.short { width: 60%; }
+
+        /* ===== ЦЕНЫ ===== */
+        .pricing-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(11, 27, 51, 0.06);
+            box-shadow: 0 4px 20px rgba(11, 27, 51, 0.04);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--gold);
+            box-shadow: 0 12px 50px rgba(201, 162, 39, 0.18);
+            transform: scale(1.03);
+        }
+
+        .pricing-card.featured::before {
+            content: "★ Рекомендуем";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--navy-deep);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .pricing-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy-deep);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--navy);
+            margin: 1rem 0;
+            line-height: 1;
+        }
+
+        .pricing-price .currency {
+            font-size: 1.2rem;
+            color: var(--gold);
+            vertical-align: super;
+        }
+
+        .pricing-price .period {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 1.5rem 0;
             text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .review-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
         }
 
-        .review-card .review-text {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 20px;
+        .pricing-features li::before {
+            content: "✓";
+            color: var(--gold);
+            font-weight: 700;
         }
 
-        .review-card .review-author {
-            font-weight: bold;
-            color: #333;
+        /* ===== КОНТАКТЫ ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
         }
 
-        .review-card .review-position {
-            font-size: 14px;
-            color: #777;
+        .contact-info {
+            background: var(--navy-deep);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .review-card .rating {
-            margin-top: 15px;
-            color: #ffcc00;
+        .contact-info::before {
+            content: "∞";
+            position: absolute;
+            bottom: -3rem;
+            right: -1rem;
+            font-size: 14rem;
+            font-family: 'Playfair Display', serif;
+            color: rgba(201, 162, 39, 0.06);
+            line-height: 1;
         }
 
-        .star-rating {
-            font-size: 20px;
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(201, 162, 39, 0.15);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .contact-item .label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-item .value {
+            color: var(--white);
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(11, 27, 51, 0.06);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid rgba(11, 27, 51, 0.12);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            background: var(--cream);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* ===== ПОДВАЛ ===== */
+        footer {
+            background: var(--navy-deep);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 3rem 2rem 2rem;
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+        }
+
+        .footer-brand h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        .footer-col h5 {
+            color: var(--gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.88rem;
+            padding: 0.35rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 2rem auto 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ===== АДАПТИВНОСТЬ ===== */
+        @media (max-width: 900px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+        }
+
+        @media (max-width: 640px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            nav ul { gap: 0.2rem; }
+            nav a { padding: 0.5rem 0.7rem; font-size: 0.85rem; }
+            .hero { padding: 5rem 1.5rem 4rem; }
+            section { padding: 3.5rem 1.5rem; }
+            .stats { grid-template-columns: 1fr 1fr; margin-top: -2rem; }
+            .footer-content { grid-template-columns: 1fr; }
+            .pricing-card.featured { transform: none; }
         }
     </style>
 </head>
 <body>
-    <div class="reviews-section">
-        <h2>Отзывы учеников</h2>
-        <div class="reviews-container">
-            <div class="review-card">
-                <p class="review-text">"Обращалась к Ксении в 10 классе, нужно было разобраться со школьной программой. Два триместра 
-                    подряд были 2, не вылазила даже на 3. Благодаря урокам, смогла вытянуть на 4 и перейти в 11 класс.
-                    Спасибо огромное!!!!!!!"</p>
-                <p class="review-author">Киря</p>
-                <div class="rating">
-                    <span class="star-rating">★★★★★</span>
+
+    <!-- ФОНОВЫЕ МАТЕМАТИЧЕСКИЕ СИМВОЛЫ -->
+    <div class="math-bg" aria-hidden="true">
+        <span>∑</span>
+        <span>∫</span>
+        <span>π</span>
+        <span>√</span>
+        <span>∞</span>
+        <span>Δ</span>
+    </div>
+
+    <!-- ШАПКА -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-mark">∑</div>
+                <div class="logo-text">
+                    <span class="logo-title">Центр Подготовки</span>
+                    <span class="logo-sub">On-line school</span>
                 </div>
-            </div>
-            <div class="review-card">
-                <p class="review-text">"Пришел с 0 знаний, в итоге за год вытянули информатику на 90 баллов! Занимались два
-                    раза в неделю, меня очень спасло рвение Ксении помочь мне. Вместо часовых уроков, мы постоянно
-                    задерживались на 2 часа, разбирали все работы, хотя Ксения всегда брала оплату как за час.
-                    "</p>
-                <p class="review-author">Егор</p>
-                <div class="rating">
-                    <span class="star-rating">★★★★★</span>
-                </div>
-            </div>
-            <div class="review-card">
-                <p class="review-text">"Безусловно лучший учитель в моей жизни!! Весь год провели на одной волне, сдала
-                    ОГЭ на 5 по информатике и математике. Для меня - это просто чудо
-                    Спасибо))"</p>
-                <p class="review-author">Катерина</p>
-                <div class="rating">
-                    <span class="star-rating">★★★★★</span>
-                </div>
+            </a>
+
+            <nav>
+                <ul>
+                    <li><a href="#courses">Курсы</a></li>
+                    <li><a href="#teachers">Преподаватели</a></li>
+                    <li><a href="#results">Результаты и отзывы</a></li>
+                    <li><a href="#pricing">Цены</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">∫ Наука · Знания · Доверие</div>
+            <h1>Онлайн-школа, которой <span class="accent">доверяют</span> будущее</h1>
+            <p>Здесь появится главный слоган и описание Центра Подготовки. Место для краткого, но убедительного сообщения о миссии школы.</p>
+            <div class="hero-buttons">
+                <a href="#courses" class="btn btn-primary">Выбрать курс →</a>
+                <a href="#contacts" class="btn btn-outline">Записаться на пробное</a>
             </div>
         </div>
+    </section>
+
+    <!-- СТАТИСТИКА -->
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-value"><span class="symbol">∑</span>00</div>
+            <div class="stat-label">Учеников</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value"><span class="symbol">π</span>00</div>
+            <div class="stat-label">Средний балл</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value"><span class="symbol">∞</span>00</div>
+            <div class="stat-label">Лет опыта</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value"><span class="symbol">√</span>00%</div>
+            <div class="stat-label">Довольны</div>
+        </div>
     </div>
-</body>
-</html>
 
-    
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Форма обратной связи</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            max-width: 400px;
-        }
-        label {
-            margin-bottom: 5px;
-        }
-        input, textarea {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            padding: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-    </style>
-</head>
-<body>
+    <!-- КУРСЫ -->
+    <section id="courses">
+        <div class="section-header">
+            <span class="section-tag">01 — Направления</span>
+            <h2>Наши курсы</h2>
+            <div class="divider">∫</div>
+            <p>Здесь будет описание курсов Центра Подготовки.</p>
+        </div>
 
-<h2>Форма обратной связи</h2>
-<form id="feedbackForm">
-    <label for="name">Ваше имя:</label>
-    <input type="text" id="name" name="name" required>
+        <div class="grid grid-3">
+            <div class="placeholder-card">
+                <div class="placeholder-icon">∑</div>
+                <h3>Математика</h3>
+                <p>Описание курса появится здесь позже.</p>
+                <div class="placeholder-line"></div>
+                <div class="placeholder-line short"></div>
+            </div>
+            <div class="placeholder-card">
+                <div class="placeholder-icon">π</div>
+                <h3>Физика</h3>
+                <p>Описание курса появится здесь позже.</p>
+                <div class="placeholder-line"></div>
+                <div class="placeholder-line short"></div>
+            </div>
+            <div class="placeholder-card">
+                <div class="placeholder-icon">√</div>
+                <h3>Русский язык</h3>
+                <p>Описание курса появится здесь позже.</p>
+                <div class="placeholder-line"></div>
+                <div class="placeholder-line short"></div>
+            </div>
+            <div class="placeholder-card">
+                <div class="placeholder-icon">Δ</div>
+                <h3>Информатика</h3>
+                <p>Описание курса появится здесь позже.</p>
+                <div class="placeholder-line"></div>
+                <div class="placeholder-line short"></div>
+            </div>
+            <div class="placeholder-card">
+                <div class="placeholder-icon">∞</div>
+                <h3>Химия</h3>
+                <p>Описание курса появится здесь позже.</p>
+                <div class="placeholder-line"></div>
+                <div class="placeholder-line short"></div>
+            </div>
+            <div class="placeholder-card">
+                <div class="placeholder-icon">λ</div>
+                <h3>Биология</h3>
+                <p>Описание курса появится здесь позже.</p>
+                <div class="placeholder-line"></div>
+                <div class="placeholder-line short"></div>
+            </div>
+        </div>
+    </section>
 
-    <label for="email">Ваш Email:</label>
-    <input type="email" id="email" name="email" required>
+    <!-- ПРЕПОДАВАТЕЛИ -->
+    <section id="teachers">
+        <div class="section-header">
+            <span class="section-tag">02 — Команда</span>
+            <h2>Наши преподаватели</h2>
+            <div class="divider">π</div>
+            <p>Здесь будет информация о преподавателях Центра Подготовки.</p>
+        </div>
 
-    <label for="message">Сообщение:</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
+        <div class="grid grid-4">
+            <div class="placeholder-card">
+                <div class="placeholder-icon">👤</div>
+                <h3>Имя Фамилия</h3>
+                <p>Краткое описание преподавателя.</p>
+                <div class="placeholder-line short"></div>
+            </div>
+            <div class="placeholder-card">
+                <div class="placeholder-icon">👤</div>
+                <h3>Имя Фамилия</h3>
+                <p>Краткое описание преподавателя.</p>
+                <div class="placeholder-line short"></div>
+            </div>
+            <div class="placeholder-card">
+                <div class="placeholder-icon">👤</div>
+                <h3>Имя Фамилия</h3>
+                <p>Краткое описание преподавателя.</p>
+                <div class="placeholder-line short"></div>
+            </div>
+            <div class="placeholder-card">
+                <div class="placeholder-icon">👤</div>
+                <h3>Имя Фамилия</h3>
+                <p>Краткое описание преподавателя.</p>
+                <div class="placeholder-line short"></div>
+            </div>
+        </div>
+    </section>
 
-    <button type="submit">Отправить</button>
-</form>
+    <!-- РЕЗУЛЬТАТЫ И ОТЗЫВЫ -->
+    <section id="results">
+        <div class="section-header">
+            <span class="section-tag">03 — Достижения</span>
+            <h2>Наши результаты и отзывы</h2>
+            <div class="divider">√</div>
+            <p>Здесь появятся цифры, отзывы и истории успеха учеников.</p>
+        </div>
 
-<script>
-    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+        <div class="grid grid-3">
+            <div class="placeholder-card">
+                <div class="placeholder-icon">★</div>
+                <h3>Отзыв ученика</h3>
+                <p>Текст отзыва появится здесь.</p>
+                <div class="placeholder-line"></div>
+                <div class="placeholder-line short"></div>
+            </div>
+            <div class="placeholder-card">
+                <div class="placeholder-icon">★</div>
+                <h3>Отзыв родителя</h3>
+                <p>Текст отзыва появится здесь.</p>
+                <div class="placeholder-line"></div>
+                <div class="placeholder-line short"></div>
+            </div>
+            <div class="placeholder-card">
+                <div class="placeholder-icon">★</div>
+                <h3>История успеха</h3>
+                <p>Текст истории появится здесь.</p>
+                <div class="placeholder-line"></div>
+                <div class="placeholder-line short"></div>
+            </div>
+        </div>
+    </section>
 
-        // Получаем данные из формы
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+    <!-- ЦЕНЫ -->
+    <section id="pricing">
+        <div class="section-header">
+            <span class="section-tag">04 — Стоимость</span>
+            <h2>Цены</h2>
+            <div class="divider">∞</div>
+            <p>Здесь будут тарифы и стоимость обучения.</p>
+        </div>
 
-        // Здесь вы можете обработать данные, например, отправить их на сервер
-        console.log('Имя:', name);
-        console.log('Email:', email);
-        console.log('Сообщение:', message);
+        <div class="grid grid-3">
+            <div class="pricing-card">
+                <div class="pricing-name">Базовый</div>
+                <div class="pricing-price"><span class="currency">₽</span>0<span class="period"> / мес</span></div>
+                <ul class="pricing-features">
+                    <li>Пункт 1</li>
+                    <li>Пункт 2</li>
+                    <li>Пункт 3</li>
+                </ul>
+                <a href="#contacts" class="btn btn-primary" style="width:100%; justify-content:center;">Выбрать</a>
+            </div>
 
-        // Очистка формы после отправки
-        this.reset();
-        alert('Ваше сообщение отправлено!');
-    });
-</script>
+            <div class="pricing-card featured">
+                <div class="pricing-name">Оптимальный</div>
+                <div class="pricing-price"><span class="currency">₽</span>0<span class="period"> / мес</span></div>
+                <ul class="pricing-features">
+                    <li>Пункт 1</li>
+                    <li>Пункт 2</li>
+                    <li>Пункт 3</li>
+                    <li>Пункт 4</li>
+                </ul>
+                <a href="#contacts" class="btn btn-primary" style="width:100%; justify-content:center;">Выбрать</a>
+            </div>
 
-</body>
-</html>
-<script>
-    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+            <div class="pricing-card">
+                <div class="pricing-name">Премиум</div>
+                <div class="pricing-price"><span class="currency">₽</span>0<span class="period"> / мес</span></div>
+                <ul class="pricing-features">
+                    <li>Пункт 1</li>
+                    <li>Пункт 2</li>
+                    <li>Пункт 3</li>
+                    <li>Пункт 4</li>
+                    <li>Пункт 5</li>
+                </ul>
+                <a href="#contacts" class="btn btn-primary" style="width:100%; justify-content:center;">Выбрать</a>
+            </div>
+        </div>
+    </section>
 
-        // Получаем данные из формы
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+    <!-- КОНТАКТЫ -->
+    <section id="contacts">
+        <div class="section-header">
+            <span class="section-tag">05 — Связь</span>
+            <h2>Контакты</h2>
+            <div class="divider">Δ</div>
+            <p>Свяжитесь с нами удобным способом.</p>
+        </div>
 
-        // Создаем объект FormData для отправки данных
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('email', email);
-        formData.append('message', message);
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Связаться с нами</h3>
 
-        // Отправляем данные на сервер с помощью fetch
-        fetch('save_feedback.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            alert(data); // Показываем ответ от сервера
-            this.reset(); // Очищаем форму
-        })
-        .catch(error => {
-            console.error('Ошибка:', error);
-            alert('Произошла ошибка при отправке сообщения.');
-        });
-    });
-</script>
+                <div class="contact-item">
+                    <div class="icon">☎</div>
+                    <div>
+                        <div class="label">Телефон</div>
+                        <div class="value">+7 (___) ___-__-__</div>
+                    </div>
+                </div>
 
-Find More
-Find More
+                <div class="contact-item">
+                    <div class="icon">@</div>
+                    <div>
+                        <div class="label">Email</div>
+                        <div class="value">info@example.com</div>
+                    </div>
+                </div>
 
-<footer>
-    <p>© 2024 Репетитор Ксения. Все права защищены.</p>
-</footer>
+                <div class="contact-item">
+                    <div class="icon">⌘</div>
+                    <div>
+                        <div class="label">Адрес</div>
+                        <div class="value">Город, улица, дом</div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon">∞</div>
+                    <div>
+                        <div class="label">Соцсети</div>
+                        <div class="value">Telegram · VK · YouTube</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="font-family:'Playfair Display',serif; color:var(--navy-deep); margin-bottom:1.5rem;">Оставить заявку</h3>
+                <form>
+                    <div class="form-group">
+                        <label>Ваше имя</label>
+                        <input type="text" placeholder="Иван Иванов">
+                    </div>
+                    <div class="form-group">
+                        <label>Телефон или Email</label>
+                        <input type="text" placeholder="+7 ... или mail@...">
+                    </div>
+                    <div class="form-group">
+                        <label>Сообщение</label>
+                        <textarea placeholder="Ваш вопрос..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>Центр Подготовки</h4>
+                <p>Онлайн-школа для тех, кто ценит знания, науку и доверие. Готовим к экзаменам и олимпиадам.</p>
+            </div>
+
+            <div class="footer-col">
+                <h5>Навигация</h5>
+                <a href="#courses">Курсы</a>
+                <a href="#teachers">Преподаватели</a>
+                <a href="#results">Результаты</a>
+                <a href="#pricing">Цены</a>
+            </div>
+
+            <div class="footer-col">
+                <h5>Помощь</h5>
+                <a href="#contacts">Контакты</a>
+                <a href="#">FAQ</a>
+                <a href="#">Документы</a>
+            </div>
+
+            <div class="footer-col">
+                <h5>Мы в сети</h5>
+                <a href="#">Telegram</a>
+                <a href="#">VK</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Центр Подготовки · ∑ ∫ π √ ∞ Δ
+        </div>
+    </footer>
 
 </body>
 </html>
